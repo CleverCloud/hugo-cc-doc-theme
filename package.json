@@ -1,5 +1,5 @@
 {
-  "name": "clevercloud-documentation",
+  "name": "hugo-cc-doc-theme",
   "version": "1.0.0",
   "description": "Clever Cloud Hugo documentation",
   "main": "index.js",
