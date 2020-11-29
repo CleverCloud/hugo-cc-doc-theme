@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+
+        <section class="main__wrapper">
+        {{- partial "menu.html" . -}}
+        <div id="main__content">
+
+        {{- partial "header.html" . -}}
+
+        {{- if not .Site.Params.disableSearch}}
+        {{- partial "search.html" . -}}
+        {{- end}}
+
+        <main class="themainclass">
+          <div class="row no-gutters section__top">
+              
+
+                {{- if and (gt .WordCount 200 ) (and (ne .Site.Params.toc false) (ne .Params.toc false)) }}
+                <div style="z-index:0" class="col* order-1 col-md-5 order-md-2 order-lg-2 col-lg-3 col__right">
+                    {{- partial "tableofcontents.html" . -}}
+                </div>
+                <div class="col* order-2 col-md-7 order-md-1  order-lg-1 col-lg-9 col__left">
+                {{else}}
+                <div class="col* order-2 col-md-12 order-md-1  order-lg-1 col-lg-12 col__left">
+
+                  {{end}}
+
+                    {{- block "main" . }}{{- end }}
+                    
+                    <div >
+                        {{- if and (ne .Site.Params.disableReadmoreNav true) (ne .Params.disableReadmoreNav true) -}}
+                        <div class="position-relative mx-auto col-lg-9">
+                          {{ partial "next-prev-page.html" . }}
+                        </div>
+                        {{- end -}}
+                    </div> 
+
+                </div>
+
+            </div> 
+
+
+      </main>
+
+      {{- partial "clever-footer.html" . -}}
+
+    </div>
+    </section>
+
+    {{- partial "footer.html" . -}}
+    </body>
+</html>

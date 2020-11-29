@@ -1,0 +1,169 @@
+header{
+  background: $grey1;
+  padding: 2rem 6rem;
+  box-sizing: border-box;
+  margin: 0 -60px 0;
+
+}
+header .navbar-expand-lg .navbar-collapse {
+  justify-content: flex-end;
+}
+.navbar-nav .nav-link{
+  font-size: 1.5rem;
+  color:#000;
+}
+header  .navbar-expand-lg .navbar-nav .nav-link {
+  padding: 1rem 1.5rem;
+}
+.navbar-nav .nav-link:hover{
+  color:$global_color1;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: $black;
+}
+
+// search bar //
+.header__search {
+  position: relative;
+  margin-top: -30px;
+  z-index: 10;
+}
+.search__bar{
+  position: relative;
+  box-shadow: 0 18px 24px 0 $blue-shadow-light;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  background-color: white;
+  border:1.5px solid $grey4;
+  #svg {
+    width: 13rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    height: 2rem;
+    div {
+      position: relative;
+      transform: scale(0.25);
+      transform-origin: 0 0;
+      height: 100%;
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 400%;
+        height: 400%;
+        background-image: url("/images/search-by-algolia-light-background.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+  input{
+    background:$white;
+    border:none;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    display: block;
+    min-height: 6rem;
+    width: 100%;
+    font-size: 1.6rem;
+    color:$grey10;
+    font-weight: 500;
+    //managing ellipsis
+    box-sizing:border-box;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    &:focus{ border-color:$lightpurple }
+    ::placeholder { color: blue; }
+
+  }
+   .btn {
+    min-height: 4.5rem;
+    position: absolute;
+    top: 8px;
+    right: 6px;
+    background: #3A3771;
+    color: $white;
+    display: inline-block;
+    min-width: 10.2rem;
+    font-size: 1.5rem;
+    box-shadow: 0 18px 24px rgba(68,63,153,0.3);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+  }
+}
+input{
+  background:$white;
+  border:1px solid #CDCDE3;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  display: block;
+  min-height: 4.5rem;
+  width: 100%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.header--1{
+  position: relative;
+  overflow: hidden;
+  padding: 18rem 0 2rem;
+  .img-1{
+    position: absolute;
+    top: 36px;
+    right: 90px;
+  }
+  .img-2{
+    position: absolute;
+    right: 20rem;
+    bottom: -40px;
+  }
+}
+.header__infos{
+  h2{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 4.5rem;
+  }
+}
+.color-1{
+  color:$global_color1
+}
+
+.login__header{
+  // position: absolute;
+  right: 0;
+  a{
+    background: $white;
+    color:$black;
+    box-shadow: 0 15px 20px 0 rgba(97,108,143,0.15);
+    padding: .8rem 1.5rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+  }
+}
+
+// payment header //
+.header--2{
+  position: relative;
+  padding: 2rem 0;
+  overflow: hidden;
+  .img-3{
+    position: absolute;
+    top:0;
+  }
+  .img-4{
+    position: absolute;
+    right: 10rem;
+    top:0;
+  }
+}

@@ -1,0 +1,24 @@
+{{ $section_to_display := .section_to_display  }}
+<div class="setup__box section__top">
+    <div class="setup__box__bg">
+        <div class="setup__box__content">
+        <h2 class="title__head">{{ .context.Title }}</h2>
+        {{ .context.Content }}
+            {{ if .IsTranslated }}
+                <h4>{{ i18n "translations" }}</h4>
+                <ul>
+                    {{ range .Translations }}
+                        <li>
+                            <a href="{{ .RelPermalink }}">{{ .Lang }}: {{ .Title }}</a>
+                        </li>
+                    {{ end }}
+                </ul>
+            {{ end }}
+            <div class="row">
+            {{ range $section_to_display }}
+                {{ partial "boxes-section-summaries" (dict "context" . "fullcontent" true) }}
+            {{ end }}
+            </div>
+        </div>
+    </div>
+</div>

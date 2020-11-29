@@ -1,0 +1,15 @@
+/dist/
+/node_modules/
+/tmp/
+npm-debug.log
+/package-lock.json
+
+#yarn
+yarn-error.log
+yarn.lock
+
+# osx users
+.DS_Store
+
+/bin
+/public

@@ -1,0 +1,18 @@
+{{ printf `<?xml version="1.0" encoding="utf-8" ?>` | safeHTML }}
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:ie="http://schemas.microsoft.com/Search/2008/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<Description>Clever Cloud Documentation search</Description>
+	<Developer>Clever Cloud</Developer>
+	<InputEncoding>utf-8</InputEncoding>
+	<Image width="32" height="32" type="image/png">{{ .Site.BaseURL }}favicons/favicon-32x32.png</Image>
+	<Image width="16" height="16" type="image/vnd.microsoft.icon">{{ .Site.BaseURL }}favicons/favicon.ico</Image>
+	<Language>{{ .Site.LanguageCode }}</Language>
+	<LongName>{{ .Site.Title }} :: {{ .Site.Language.Lang }}</LongName>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<ShortName>CC Documentation</ShortName>
+	<SyndicationRight>open</SyndicationRight>
+	<!-- <ie:PreviewUrl type="text/html" method="GET" template="{{ .Site.BaseURL }}{{ .Site.Language.Lang }}/tags/{searchTerms}/"/> -->
+	<ie:PreviewUrl type="text/html" method="GET" template="{{ .Site.BaseURL }}?terms={searchTerms}"/>
+	<moz:SearchForm>{{ .Site.BaseURL }}?terms={searchTerms}</moz:SearchForm>
+	<Url template="{{ .Site.BaseURL }}?terms={searchTerms}" type="text/html" />
+	<Url rel="self" template="{{ .Site.BaseURL }}opensearch.xml" type="application/opensearchdescription+xml" />
+</OpenSearchDescription>

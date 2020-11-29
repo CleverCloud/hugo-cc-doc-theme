@@ -1,0 +1,362 @@
+/*! purgecss start ignore */
+[data-theme="dark"] header  {
+	background: $black;
+}
+
+[data-theme="dark"] .navbar-nav .nav-link {
+	color: $white;
+}
+
+[data-theme="dark"]  .navbar-nav .nav-link:hover {
+	color: $white;
+}
+
+[data-theme="dark"]  .navbar-light  .navbar-nav .nav-link {
+	color: $white;
+}
+
+[data-theme="dark"] .search__bar {
+	background-color: $plainblack !important;
+	border: 1px solid $grey7 !important;
+	box-shadow:none;
+	input {
+		background-color: $plainblack !important;
+		color: $grey1;
+		box-shadow:none;
+		&:focus{border:none}
+	}
+	.btn {
+		background: $red;
+		color: $plainblack;
+		box-shadow: 0 18px 24px rgba(68, 63, 153, 0.3);
+	}
+	.algolia-autocomplete .aa-dropdown-menu {
+    background-color: $plainblack;
+    border-color:$grey7;
+		box-shadow:none;
+		color:white;
+	}
+	.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+    background-color: $lightpurple;
+  }
+}
+
+[data-theme="dark"]  input {
+	background: $black;
+	border: 1px solid $plainblack;
+	color: $white;
+}
+
+
+[data-theme="dark"] .login__header  {
+	a {
+		background: $red3;
+		color: $white;
+		box-shadow: 0 0 25px -10px $red1-shadow;
+	}
+}
+
+[data-theme="dark"]  #sidebar{
+	background: $global_color;
+	color: #fff;
+	border-right: 1px solid $grey7;
+}
+
+// navigation //
+[data-theme="dark"] .sidebar__menu  {
+	ul {
+		li {
+			a {
+				color: rgba(255, 255, 255, 0.5);
+			}
+		}
+	}
+}
+
+[data-theme="dark"] .sidebar__menu ul li a:hover a:before {
+	background: $global_color1;
+}
+
+[data-theme="dark"] .sidebar__menu ul a.active {
+	color: $white;
+}
+
+[data-theme="dark"] .sidebar__menu ul li.active a:before {
+	background: $global_color1;
+}
+
+#sidebarCollapse.btn-info[data-theme="dark"]  {
+	color: #fff;
+	background-color: $global_color1;
+	border-color: $global_color1;
+}
+
+body[data-theme="dark"]  {
+	background: $black;
+	color: $white;
+}
+
+[data-theme="dark"] h1, [data-theme="dark"] h2 {
+	color: $white;
+}
+
+[data-theme="dark"] h3 ,
+[data-theme="dark"] h4 ,
+[data-theme="dark"] h5 ,
+[data-theme="dark"] h6  {
+	font-family: $global_font;
+	color: $white;
+}
+
+// help box //
+.help__box__bg[data-theme="dark"]  {
+	box-shadow: 0 25px 34px -5px rgba(0, 0, 0, 0.1);
+}
+
+.help__box--bg1[data-theme="dark"]  {
+	background: rgba(176, 255, 233, 0.3);
+	background: linear-gradient(180deg, rgba(156, 179, 255, 0.3) 0%, rgba(176, 255, 233, 0.3) 100%);
+}
+
+.help__box--bg2[data-theme="dark"]  {
+	background: rgba(255, 254, 205, 0.3);
+	background: linear-gradient(180deg, rgba(255, 175, 115, 0.3) 0%, rgba(255, 254, 204, 0.3) 100%);
+}
+
+.help__box--bg3[data-theme="dark"]  {
+	background: rgba(231, 209, 255, 0.3);
+	background: linear-gradient(180deg, rgba(231, 209, 255, 0.3) 0%, rgba(131, 131, 239, 0.3) 100%);
+}
+
+.help__box--bg4[data-theme="dark"]  {
+	background: rgba(255, 221, 197, 0.3);
+	background: linear-gradient(180deg, rgba(255, 137, 137, 0.2) 0%, rgba(255, 221, 197, 0.2) 100%);
+}
+
+[data-theme="dark"]  .setup__box__bg {
+	&:before {
+		background: $black;
+	}
+}
+
+[data-theme="dark"]  .setup__box__outer{
+	box-shadow: 0 0 30px -8px $white-shadow;
+	background: $black;
+	small {
+		color: $white;
+	}
+}
+
+[data-theme="dark"] .setup__box__list  a:hover .setup__box__outer h3 {
+	color: $white-shadow;
+}
+
+[data-theme="dark"] .feature__item__bg {
+	&:before {
+		background: $black;
+	}
+}
+
+[data-theme="dark"] .feature__list__outer  {
+	box-shadow: 0 0 10px 5px $white-shadow;
+	background: $black;
+}
+
+[data-theme="dark"]  .popular__item__list {
+	a {
+		color: $grey;
+	}
+}
+
+[data-theme="dark"] .popular__item__flex  {
+	.popular__item__infos {
+		h4 {
+			color: $white;
+		}
+	}
+}
+
+// contribute item //
+[data-theme="dark"] .contribute__flex  {
+	.contribute__right {
+		.btn-1 {
+			background: #D74D4E;
+			color: $white;
+			box-shadow: 0px 18px 24px rgba(215, 77, 78, 0.4);
+			&:hover {
+				background: #bd3839;
+			}
+		}
+	}
+}
+
+[data-theme="dark"] .contribute__item  {
+	border-top: 1px solid $white;
+}
+
+// footer //
+[data-theme="dark"]  .main__footer {
+	background: $black;
+}
+
+[data-theme="dark"] .footer__list  {
+	p {
+		color: $white;
+	}
+	h4 {
+		color: $white;
+	}
+}
+        
+[data-theme="dark"]  .sign__up {
+	input {
+		border: 1px solid $grey10;
+		background: $plainblack;
+		color:white;
+	}
+	label.form__title {
+		color: $grey2;
+	}
+	.btn-2 {
+		background: $lightpurple;
+		color: $black;
+		box-shadow: 0 18px 24px rgba(68, 63, 153, 0.3);
+	}
+}
+
+[data-theme="dark"] .footer__top {
+	border-bottom: 1px solid $white;
+}
+
+// footer menu //
+[data-theme="dark"] .footer__menu  {
+	h4 {
+		color: $white;
+	}
+	ul {
+		li {
+			a {
+				color: $lightpurple;
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+	}
+}
+
+[data-theme="dark"] .content__infos  {
+	color: $grey1;
+}
+
+[data-theme="dark"]  .custom__style {
+	li {
+		label {
+			background: $black;
+			color: $purple;
+		}
+	}
+}
+
+.a__link[data-theme="dark"]  {
+	color: #7567DB;
+}
+
+.custom__style--1[data-theme="dark"]  {
+	li {
+		&:before {
+			background: #7567DB;
+		}
+	}
+}
+
+[data-theme="dark"]  .content__notify {
+	h4 {
+		color: $grey1;
+	}
+}
+
+[data-theme="dark"] .side__border {
+	border-left: 3px solid $black;
+}
+
+[data-theme="dark"]  .aside__bg{
+	background: $black;
+	box-shadow: none;
+	border: 1px solid $grey7;
+	#TableOfContents ul {
+		h3{
+			color:white;
+		}
+		li {
+			border-color: $grey7;
+			a {
+				color: $grey5;
+				&.active {
+					color: lighten($lightpurple, 15%)
+				}
+			}
+		}
+	}
+}
+
+.navbar-light[data-theme="dark"]  .navbar-toggler {
+	color: $black;
+	border-color: $black;
+}
+
+.aside__bg[data-theme="dark"]  a:hover,
+.aside__bg[data-theme="dark"]  a:focus {
+	color: $grey1;
+}
+
+.aside__bg[data-theme="dark"]  li.active>a {
+	color: $grey10;
+}
+
+[data-theme="dark"]  .algolia-autocomplete .aa-hint {
+    color: $white;
+}
+
+[data-theme="dark"]  .algolia-autocomplete .aa-dropdown-menu {
+	background-color: $black;
+	border: 1px solid $grey2;
+}
+[data-theme="dark"]   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+	background-color: $blue-shadow;
+}
+// Code Highlighter
+[data-theme="dark"] pre {
+	background-color: $purple !important;
+	color: $grey3;
+}
+
+[data-theme="dark"] code {
+	background-color: transparent;
+	border:.5px solid $grey5;
+	color:$grey5;
+}
+
+
+[data-theme="dark"] pre code {
+	background-color: transparent;
+	border:none;
+}
+//Tables have white borders
+[data-theme="dark"] .table, [data-theme="dark"] .table-striped tbody tr:nth-of-type(2n+1) {
+	color: white;
+	background-color: transparent;
+}
+// Revert black images with invert filter (toc and footer logo)
+[data-theme="dark"] .aside__bg li > a.active::before,[data-theme="dark"] .footer__top .footer-logo{
+	filter: invert(1);
+	webkit-filter:invert(1);
+}
+//Remove shadow and tweaks for next/prev section
+[data-theme="dark"] .next-prev-page{
+	h4{color:white;}
+	box-shadow:none !important;
+	border: 1px solid $grey7;
+	border-radius: 5px;
+}
+/*! purgecss end ignore */

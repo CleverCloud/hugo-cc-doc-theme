@@ -1,0 +1,97 @@
+<nav id="sidebar">
+  <div class="sidebar__logo">
+    <a href="/">
+      <img src="{{ .Site.BaseURL }}{{ .Site.Params.menuLogo }}" class="img-fluid logo-sidebar_img" alt="title">
+    </a>
+  </div>
+       <div class="sidebar__menu" >
+         <ul class="list-unstyled components">
+             {{- $currentNode := . }}
+             {{- if eq .Site.Params.ordersectionsby "title"}}
+               {{- range .Site.Home.Sections.ByTitle}}
+               {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode}}
+               {{- end}}
+             {{- else}}
+               {{- range .Site.Home.Sections.ByWeight}}
+               {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "depth" 0}}
+               {{- end}}
+             {{- end}}
+
+                <div class="darkSwitch custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+                  <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+                </div>
+        </ul>
+    </div>
+</nav>
+
+<!-- Template -->
+{{- define "section-tree-nav" }}
+{{- $currentNode := .currentnode }}
+{{ $root := .currentnode }}
+{{ $ctx := .sect }}
+{{ $depth := .depth }}
+{{ $currentURL := $root.Permalink }}
+{{ $sectionName1 := index (last 1 (split (delimit (split $ctx.Permalink "/") "," "") ",")) 0 }}
+{{ $sectionName2 := index (last 2 (split (delimit (split $currentURL "/") "," "") ",")) 0 }}
+{{- with .sect}}
+{{- if and .IsSection (or (not .Params.hidden) $.showhidden)}}
+    {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
+    {{- safeHTML .Params.head}}
+    <li data-nav-id="{{.RelPermalink}}" class="
+        {{- if .IsAncestor $currentNode}} parent{{end}}
+        {{- if eq .RelPermalink $currentNode.RelPermalink}} active{{end}}
+        {{- if ne $numberOfPages 0 }} haschildren{{end}}
+        ">
+        <!-- I'm the params head -->
+        <div>
+
+        {{- if ne $numberOfPages 0}} 
+        <i id="chevron-{{md5 .}}" aria-expanded="false" class="chevron {{- if .IsAncestor $currentNode}} chevronopen{{end}} {{- if eq .RelPermalink $currentNode.RelPermalink}} chevronopen{{end}}" onclick="this.classList.toggle('chevronopen');document.getElementById('collapsable-{{md5 .}}').classList.toggle('collapse');"></i>
+        <a class="{{- if eq .RelPermalink $currentNode.RelPermalink}} active{{end}}" href="#" onclick="document.getElementById('chevron-{{md5 .}}').classList.toggle('chevronopen');document.getElementById('collapsable-{{md5 .}}').classList.toggle('collapse');return false;">{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}
+        </a>
+        {{else}}
+        <a class="{{- if eq .RelPermalink $currentNode.RelPermalink}} active{{end}}" href="{{.RelPermalink}}">{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}
+        </a>
+       {{end}}
+      </div>
+      {{- if ne $numberOfPages 0 }}
+        <ul id="collapsable-{{md5 .}}" class="list-unstyled
+        {{- if not (  .IsAncestor $currentNode) }} collapse{{end}}
+        ">
+          {{- .Scratch.Set "pages" .Pages }}
+          {{- if .Sections}}
+          {{- .Scratch.Set "pages" (.Pages | union .Sections) }}
+          {{- end}}
+          {{- $pages := (.Scratch.Get "pages") }}
+
+        {{- if eq .Site.Params.ordersectionsby "title"}}
+          {{- range $pages.ByTitle }} 
+            {{- if and .Params.hidden (not $.showhidden) }}
+            {{- else}}
+            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "depth" (add $depth 1)}}
+            {{- end}}
+          {{- end}}
+        {{- else}}
+          {{- range $pages.ByWeight }}
+            {{- if and .Params.hidden (not $.showhidden) }}
+            {{- else}}
+            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "depth" (add $depth 1) }}
+            {{- end}}
+          {{- end}}
+        {{- end}}
+        </ul>
+      {{- end}}
+    </li>
+{{- else}}
+    {{- if not .Params.Hidden }}
+        <li data-nav-id="{{.RelPermalink}}" class="{{ if eq .RelPermalink $currentNode.RelPermalink }}active{{ end }}" data-depth="{{ $depth }}">
+                <!-- I'm the params hidden -->
+                 <a href="{{.RelPermalink}}" class="{{- if eq .RelPermalink $currentNode.RelPermalink}} active{{end}}">
+                    {{safeHTML .Params.Pre}}{{.LinkTitle}}{{safeHTML .Params.Post}}
+                </a>
+        </li>
+    {{- end}}
+{{- end}}
+{{- end}}
+{{- end}}

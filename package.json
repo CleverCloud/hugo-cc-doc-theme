@@ -1,0 +1,28 @@
+{
+  "name": "clevercloud-documentation",
+  "version": "1.0.0",
+  "description": "Clever Cloud Hugo documentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "algoliasearch": "^4.5.1",
+    "autocomplete.js": "^0.37.1",
+    "bootstrap": "^4.5.2",
+    "clipboard": "^2.0.6",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "autoprefixer": "^9.8.6",
+    "postcss-cli": "^7.1.2",
+    "postcss-import": "^12.0.1",
+    "postcss-purgecss": "^2.0.3",
+    "postcss-reporter": "^7.0.0",
+    "svg-sprite": "^1.5.0"
+  }
+}

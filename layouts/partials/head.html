@@ -1,0 +1,71 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="{{ .Site.Params.keywords }}" />
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    <title>
+        {{ block "title" . }}
+        {{ .Title}}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}
+        {{ end }}
+    </title>
+
+    <!-- Load stylesheet -->
+    {{ $algolia := resources.Get "css/algolia.css" }}
+    {{ $cleverCSS := resources.Get "clever/style.scss"  | resources.ExecuteAsTemplate "clever/styled.scss" . | toCSS  }}
+    {{ $css := slice $cleverCSS $algolia | resources.Concat "css/bundle.css" | minify }}
+ 
+    {{ if eq hugo.Environment "development" }}
+    <link type=text/css rel=stylesheet href="{{ $css.RelPermalink }}" media="screen, print" />
+    {{else}}
+    {{ $purgedCss := $css | postCSS (dict "config" "./assets/css/postcss.config.js") }}
+    {{ $secureCleverCSS := $purgedCss | resources.Fingerprint site.Params.digest }}
+    <link type=text/css rel=stylesheet href="{{ $secureCleverCSS.RelPermalink }}" integrity="{{ $secureCleverCSS.Data.Integrity }}" media="screen, print" />
+    {{end}}
+
+    <!-- Icons -->
+    {{- partial "favicons.html" }}
+
+    {{- template "_internal/schema.html" . }}
+    {{- template "_internal/twitter_cards.html" . }}
+
+    {{ range .Params.categories }}
+    <meta property="article:section" content="{{ . }}" />{{ end }}
+    {{ if isset .Params "date" }}
+    <meta property="article:published_time" content="{{ time .Date }}" />{{ end }}
+
+    <!-- RSS -->
+    {{ with .OutputFormats.Get "rss" -}}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+
+    <!-- JSON Feed -->
+    {{ if .OutputFormats.Get "json" }}
+    <link href="{{ if .OutputFormats.Get "json" }}{{ .Site.BaseURL }}feed.json{{ end }}" rel="alternate"
+        type="application/json" title="{{ .Site.Title }}" />
+    {{ end }}
+
+    <link rel="search" href="{{ .Site.BaseURL }}opensearch.xml" title="Websearch" type="application/opensearchdescription+xml">
+
+    <!-- Load required Javascript -->
+    {{ $jquery := resources.Get "js/vendor/jquery.min.js" }}
+    {{ $popperjs := resources.Get "js/vendor/popper.min.js" }}
+    {{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js" }}
+    {{ $algoliasearch := resources.Get "js/vendor/algoliasearch.umd.js" }}
+    {{ $autocomplete := resources.Get "js/vendor/autocomplete.min.js" }}
+    {{ $clipboard := resources.Get "js/vendor/clipboard.min.js" }}
+    {{ $darkModeSwitch := resources.Get "js/dark-mode-switch.min.js" }}
+    {{ $search := resources.Get "js/search.js" | resources.ExecuteAsTemplate "search.js" .  }}
+    {{ $toc := resources.Get "js/toc.js" | resources.ExecuteAsTemplate "toc.js" .}}
+    {{ $defines := dict "global" `globalThis` }}
+    {{ $opts := dict "defines" $defines "minify" true}}
+    {{ $req := slice $jquery $popperjs $bootstrap $darkModeSwitch $clipboard $algoliasearch $autocomplete $toc $search | resources.Concat "js/bundle.js" | js.Build $opts }}
+    {{ $secureCleverJS := $req | resources.Fingerprint site.Params.digest }}
+    <script src="{{ $secureCleverJS.RelPermalink }}" integrity="{{ $secureCleverJS.Data.Integrity }}" defer></script>
+
+    <!-- Only include the tracking when using `hugo` or adding `--environment production` -->
+    {{ if eq hugo.Environment "production" }}
+        {{ template "_internal/google_analytics_async.html" . }}
+    {{ end }}
+
+</head>

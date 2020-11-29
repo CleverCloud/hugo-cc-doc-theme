@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+<div class="common__head">
+    <h1 class="title__head">{{ .Title }}</h1>
+  </div>
+
+{{ .Content }}
+
+    {{ if .IsTranslated }}
+        <h4>{{ i18n "translations" }}</h4>
+        <ul>
+            {{ range .Translations }}
+                <li>
+                    <a href="{{ .RelPermalink }}">{{ .Lang }}: {{ .Title }}</a>
+                </li>
+            {{ end }}
+          </ul>
+    {{ end }}
+
+{{ end }}

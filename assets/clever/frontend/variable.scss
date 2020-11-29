@@ -1,0 +1,72 @@
+// Clever Brand
+$white: #fff;
+$grey: #777787;
+$purple: #3A3871;
+$black: #13172e;
+$orange: #F57461;
+$red0: #bd3839;
+$red2: #DE233C;
+$red3: #cb1c42;
+$cherry: #A51050;
+$gradient: linear-gradient(180deg,$orange, $red3, $cherry, 100%);
+
+// Documentation colors
+$grey1: #F6F6FB;
+$grey2: #eee;
+$grey3: #d8e0ea;
+$grey4: #E7E7EB;
+$grey5: #9395A0;
+$grey6: #666;
+$grey7: #525F7F;
+$grey8: #404852;
+$grey9: #333;
+$grey10: #111;
+$plainblack: #000;
+
+
+$lightpurple: #7567DB;
+$red1: #E63F48;
+$red1-shadow:rgba(215,77,78,0.4);
+
+$black-shadow: rgba(0,0,0,0.1);
+$black2-shadow:rgba(0,0,0,0.2);
+$blue-shadow: rgba(68,63,153,0.3);
+$blue-shadow-light: rgba(97,108,143,.15);
+$white-shadow:rgba(255,255,255,0.5);
+
+
+// Links color, compliant with most of daltonism forms
+
+$link-color:                              darken($orange, 10%);
+$link-decoration:                         none;
+$link-hover-color:                        darken($link-color, 22%);
+$link-hover-decoration:                   underline;
+
+// home cards
+$bluecard-bg: rgba(176,255,233,0.3);
+$bluecard-gradient: linear-gradient(180deg, rgba(156,179,255,0.3) 0%, rgba(176,255,233,0.3) 100%);
+$yellowcard-bg: rgba(255,254,205, 0.3);
+$yellowcard-gradient: linear-gradient(180deg, rgba(255,175,115,0.3) 0%, rgba(255,254,204,0.3) 100%);
+$purplecard-bg: rgba(231,209,255,0.3);
+$purplecard-gradient: linear-gradient(180deg, rgba(231,209,255,0.3) 0%, rgba(131,131,239,0.3) 100%);
+$orangecard-bg: rgba(255,221,197,0.3);
+$orangecard-gradient: linear-gradient(180deg, rgba(255,137,137,0.2) 0%, rgba(255,221,197,0.2) 100%);
+
+// global font //
+$global_font:'Source Sans Pro', sans-serif;
+$global_font_body:'Source Sans Pro', sans-serif;
+
+// // global font //
+$global_color: $black;
+$global_color1: $red2;
+$global_color_body: $purple;
+//$border_color: $red2;
+
+
+//Table colors
+$table-accent-bg:             lighten($lightpurple, 35%);
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');

@@ -1,0 +1,4 @@
+baseURL = "http://localhost/"
+
+[Params]
+  debug = true

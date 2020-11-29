@@ -1,0 +1,81 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="{{ .Site.Params.keywords }}" />
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    <title>
+        {{ block "title" . }}
+        {{ .Title}}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}
+        {{ end }}
+    </title>
+
+    <!-- Load stylesheet -->
+    {{ $cleverCSS := resources.Get "clever/style.scss"  | resources.ExecuteAsTemplate "clever/styled.scss" . | toCSS  }}
+    {{ $css := slice  $cleverCSS  | resources.Concat "css/openapibundle.css" | minify }}
+    {{ $purgedCss := $css | postCSS (dict "config" "./assets/css/postcss.config.js") }}
+    {{ $secureCleverCSS := $purgedCss | resources.Fingerprint site.Params.digest }}
+    <link type=text/css rel=stylesheet href="{{ $secureCleverCSS.RelPermalink }}" integrity="{{ $secureCleverCSS.Data.Integrity }}" media="screen, print" />
+
+
+    <!-- Icons -->
+    {{- partial "favicons.html" }}
+
+    {{- template "_internal/schema.html" . }}
+    {{- template "_internal/twitter_cards.html" . }}
+
+    {{ range .Params.categories }}
+    <meta property="article:section" content="{{ . }}" />{{ end }}
+    {{ if isset .Params "date" }}
+    <meta property="article:published_time" content="{{ time .Date }}" />{{ end }}
+
+    <!-- RSS -->
+    {{ with .OutputFormats.Get "rss" -}}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+
+    <!-- JSON Feed -->
+    {{ if .OutputFormats.Get "json" }}
+    <link href="{{ if .OutputFormats.Get "json" }}{{ .Site.BaseURL }}feed.json{{ end }}" rel="alternate"
+        type="application/json" title="{{ .Site.Title }}" />
+    {{ end }}
+
+    <!-- Load required Javascript -->
+    {{ $jquery := resources.Get "js/vendor/jquery.min.js" }}
+    {{ $popperjs := resources.Get "js/vendor/popper.min.js" }}
+    {{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js" }}
+    {{ $darkModeSwitch := resources.Get "js/dark-mode-switch.min.js" }}
+    {{ $defines := dict "global" `globalThis` }}
+    {{ $opts := dict "defines" $defines "minify" true}}
+    {{ $req := slice $jquery $popperjs $bootstrap $darkModeSwitch | resources.Concat "js/openapibundle.js" | js.Build $opts }}
+    {{ $secureCleverJS := $req | resources.Fingerprint site.Params.digest }}
+    <script src="{{ $secureCleverJS.RelPermalink }}" integrity="{{ $secureCleverJS.Data.Integrity }}" defer></script>
+
+    <!-- Only include the tracking when using `hugo` or adding `--environment production` -->
+    {{ if eq hugo.Environment "production" }}
+        {{ template "_internal/google_analytics_async.html" . }}
+    {{ end }}
+    <script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Open+Sans:wght@300;600&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        .themainclass {
+            width: auto;
+            padding: 0;
+        }
+
+        #main__content {
+            width: auto;
+            padding: 0;
+        }
+        
+        .main__footer{
+            margin :0 -60px 0;
+        }
+
+        p {
+            margin-block-start: auto;
+            margin-block-end: auto;
+        }
+    </style>
+</head>
