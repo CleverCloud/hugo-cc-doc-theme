@@ -80,24 +80,25 @@ window.addEventListener('DOMContentLoaded', () => {
 
         handleLinkClick(evt) {
             evt.preventDefault();
-            let id = evt.target.getAttribute('href').replace('#', '');
+            let target = evt.target.getAttribute('href');
+            let id = target.replace('#', '');
 
             let section = this.headings.find(heading => {
-            return heading.getAttribute('id') === id;
+              return heading.getAttribute('id') === id;
             });
 
             section.setAttribute('tabindex', -1);
             section.focus();
 
+            window.location.hash = target;
             window.scroll({
-            behavior: motionQuery.matches ? 'instant' : 'smooth',
-            top: section.offsetTop + 200,
-            block: 'start'
+                behavior: motionQuery.matches ? 'instant' : 'smooth',
+                top: section.offsetTop + 200,
+                block: 'start'
             });
 
-
             if (this.container.classList.contains('active')) {
-            this.container.classList.remove('active');
+             this.container.classList.remove('active');
             }
         },
 
