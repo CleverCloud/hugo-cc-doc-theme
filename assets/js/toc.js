@@ -26,9 +26,22 @@ window.addEventListener('DOMContentLoaded', () => {
         tocNav = document.createElement("nav");
         tocNav.id ="TableOfContents";
         
-        headers = document.getElementsByTagName("h2");
-        
+        headers = document.getElementsByTagName("h3");
         // For each h3
+        for (i = 0; i < headers.length; i++){
+            name = headers[i].id;
+            // create an anchor
+            const anchorIcon = createIcon('link');
+            anchor = document.createElement("a");
+            anchor.setAttribute("href","#"+name);
+            anchor.classList.add('anchor');
+            anchor.appendChild(anchorIcon);
+            headers[i].appendChild(anchor);
+
+        }
+
+        headers = document.getElementsByTagName("h2");
+        // For each h2
         for (i = 0; i < headers.length; i++){
             name = headers[i].id;
             // create an anchor
