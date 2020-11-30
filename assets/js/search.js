@@ -29,7 +29,9 @@ var index = client.initIndex('{{ .Site.Params.algolia_indexName }}');
           var output = '<p>'+ autocomplete.escapeHighlightedString(val);
           if (suggestion._highlightResult.desc) output = output + ' - <span class="search-description">' + suggestion._highlightResult.desc.value + '</span>';
           return output;
-
+        },
+        empty : function(ctx) {
+          return '<p>No Results for ' + ctx.query + '</p>';
         }
       }
     }
@@ -42,4 +44,5 @@ let searchTerm = params.get("search");
 if (searchTerm) {
   search.autocomplete.setVal(searchTerm);
   search.autocomplete.open();
+  search[0].focus();
 }
