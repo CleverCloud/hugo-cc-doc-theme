@@ -38,7 +38,7 @@ var index = client.initIndex('{{ .Site.Params.algolia_indexName }}');
   });
 
 let params = (new URL(document.location)).searchParams;
-let searchTerm = params.get("terms");
+let searchTerm = params.get("search");
 if (searchTerm) {
   search.autocomplete.setVal(searchTerm);
   search.autocomplete.open();

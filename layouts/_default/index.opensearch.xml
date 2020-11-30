@@ -11,8 +11,8 @@
 	<ShortName>CC Documentation</ShortName>
 	<SyndicationRight>open</SyndicationRight>
 	<!-- <ie:PreviewUrl type="text/html" method="GET" template="{{ .Site.BaseURL }}{{ .Site.Language.Lang }}/tags/{searchTerms}/"/> -->
-	<ie:PreviewUrl type="text/html" method="GET" template="{{ .Site.BaseURL }}?terms={searchTerms}"/>
-	<moz:SearchForm>{{ .Site.BaseURL }}?terms={searchTerms}</moz:SearchForm>
-	<Url template="{{ .Site.BaseURL }}?terms={searchTerms}" type="text/html" />
+	<ie:PreviewUrl type="text/html" method="GET" template="{{ .Site.BaseURL }}?search={searchTerms}"/>
+	<moz:SearchForm>{{ .Site.BaseURL }}?search={searchTerms}</moz:SearchForm>
+	<Url template="{{ .Site.BaseURL }}?search={searchTerms}" type="text/html" />
 	<Url rel="self" template="{{ .Site.BaseURL }}opensearch.xml" type="application/opensearchdescription+xml" />
 </OpenSearchDescription>
