@@ -5,7 +5,7 @@
   }
 }
 .help__box__bg{
-  padding: 2.5rem 1.2rem;
+  padding: 1.2rem 1rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -17,15 +17,15 @@
   &:hover{
     transition-duration: 100ms;
     filter:saturate(160%);
-    h4{color:$red2}
+    h4{color:$lightpurple}
   }
   figure{
     margin-bottom: 0;
   }
     h4 {
       margin-top:inherit;
-      margin-bottom: 0;
-      font-size: 1.7rem;
+      margin: 0;
+      font-size: 1.2rem;
       font-weight: 600;
       color:black;
     }
@@ -52,7 +52,7 @@
 }
 //setup box //
 .section__top{
-  margin-top: 6rem;
+  margin-top: 3rem;
 }
 .setup__box__bg{
   position: relative;
@@ -70,12 +70,12 @@
     position: relative;
     box-sizing: border-box;
     h2{
-      margin: 5rem 0 7rem;
+      margin: 2rem 0 3rem;
     }
   }
 }
 .setup__box__outer{
-  padding: 3rem 2rem;
+  padding: 2rem 1rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -87,21 +87,23 @@
   text-align: center;
   transition-duration: 100ms;
   justify-content:center;
+  border:1px solid white;
   &:hover{
     transition-duration: 100ms;
+    border-color:$lightpurple;
     img {
       filter:saturate(160%)
     }
   }
   .setup_infos{
     h3{
-      font-size: 1.8rem;
+      font-size: 1.2rem;
       font-weight: 600;
       margin-bottom: 0;
     }
     small{
       color:#525F7F;
-      font-size: 1.5rem;
+      font-size: 1rem;
       text-decoration: none;
       &:hover{text-decoration: none;}
     }
@@ -111,7 +113,7 @@
   margin-bottom: 3rem;
 }
 .setup__box__list a:hover .setup__box__outer h3{
-  color:$global_color1;
+  color:$lightpurple;
 }
 .setup__box__bg:after{
   content: '';
@@ -159,6 +161,7 @@
   transition-duration: 100ms;
   &:hover{
     transition-duration: 100ms;
+    border:1px solid $lightpurple;
     img {
       filter:saturate(160%)
     }
@@ -222,7 +225,6 @@
   .contribute__left{
     max-width: 75rem;
     h3{
-      font-size: 3.23rem;
       margin-bottom:0;
     }
   }
@@ -232,7 +234,6 @@
       background: $red1;
       color:$white;
       box-shadow: 0px 18px 24px $red1-shadow;
-      font-size: 1.5rem;
       font-weight: 700;
       padding: 1rem 2rem;
       box-sizing: border-box;
