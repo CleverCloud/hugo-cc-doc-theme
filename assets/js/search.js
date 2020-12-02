@@ -26,12 +26,12 @@ var index = client.initIndex('{{ .Site.Params.algolia_indexName }}');
       templates: {
         suggestion: function(suggestion) {
           var val = suggestion._highlightResult.title.value;
-          var output = '<p>'+ autocomplete.escapeHighlightedString(val);
-          if (suggestion._highlightResult.desc) output = output + ' - <span class="search-description">' + suggestion._highlightResult.desc.value + '</span>';
+          var output = '<div>' + autocomplete.escapeHighlightedString(val);
+          if (suggestion._highlightResult.desc) output = output + '<div class="search-description">' + suggestion._highlightResult.desc.value + '</div>';
           return output;
         },
         empty : function(ctx) {
-          return '<p>No Results for ' + ctx.query + '</p>';
+          return '<p>No Results for ' + ctx.query + '</div>';
         }
       }
     }

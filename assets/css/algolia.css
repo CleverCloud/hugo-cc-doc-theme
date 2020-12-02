@@ -20,10 +20,11 @@
   }
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
     cursor: pointer;
-    padding: 5px 4px;
+    padding: 6px 12px;
+    color:#18173A;
   }
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-    background-color: #B2D7FF;
+    background-color: #F6F6FB;
   }
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
     font-weight: bold;
@@ -33,4 +34,6 @@
   .search-description {
     font-weight:thin;
     font-size: small;
+    color:#525F7F;
+    line-height: 2rem;
   }
