@@ -3,7 +3,7 @@
     "short_name": "{{ .Site.Title }}",
     "start_url": "{{ .Site.BaseURL }}",
     "scope":  "{{ .Site.BaseURL }}",
-    "description": "CLever Cloud's Documentation portal.",
+    "description": "Clever Cloud's Documentation portal.",
     "icons": [
         {
             "src": "/favicons/android-chrome-192x192.png",
