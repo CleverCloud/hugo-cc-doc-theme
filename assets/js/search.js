@@ -36,7 +36,15 @@ var index = client.initIndex('{{ .Site.Params.algolia_indexName }}');
       }
     }
   ]).on('autocomplete:selected', function(event, suggestion, dataset, context) {
-    window.location = suggestion.href;
+    const suggestionHref = new URL(suggestion.href);
+    const hostname = window.location.hostname;
+    suggestionHref.protocol = window.location.protocol;
+    suggestionHref.hostname = window.location.hostname;
+    suggestionHref.port = window.location.port;
+    {{ if .Site.IsServer }}
+      suggestionHref.pathname = suggestionHref.pathname.replace(/^\/doc/, '');
+    {{ end }}
+    window.location = suggestionHref.href;
   });
 
 let params = (new URL(document.location)).searchParams;
