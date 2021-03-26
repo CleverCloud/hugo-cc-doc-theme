@@ -4,6 +4,7 @@ import autocomplete from "autocomplete.js";
 
 var client = algoliasearch('{{ .Site.Params.algolia_appId }}', '{{ .Site.Params.algolia_apiKey }}');
 var index = client.initIndex('{{ .Site.Params.algolia_indexName }}');
+var siteBaseURL = '{{ .Site.BaseURL }}'.replace(/\/$/, '');
 
   function newHitsSource(index, params) {
     return function doSearch(query, cb) {
@@ -36,7 +37,7 @@ var index = client.initIndex('{{ .Site.Params.algolia_indexName }}');
       }
     }
   ]).on('autocomplete:selected', function(event, suggestion, dataset, context) {
-    window.location = suggestion.href;
+    window.location = siteBaseURL + suggestion.href;
   });
 
 let params = (new URL(document.location)).searchParams;

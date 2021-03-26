@@ -9,7 +9,7 @@
       {{- $chunked = $chunked | append (delimit (first 1000 (after $i $page.PlainWords) ) " " ) -}}
     {{- end -}}
     {{- range $i, $c := $chunked -}}
-      {{- $index = $index | append (dict "objectID" (print $page.File.UniqueID "_" $i) "page" $c "order" $i "title" $page.Title "date" $page.Date "href" $page.Permalink "desc" $page.Params.shortdesc "tags" (union (union $emptyArray $page.Params.tags ) $page.Params.keywords) "hits" 1 ) -}}
+      {{- $index = $index | append (dict "objectID" (print $page.File.UniqueID "_" $i) "page" $c "order" $i "title" $page.Title "date" $page.Date "href" $page.RelPermalink "desc" $page.Params.shortdesc "tags" (union (union $emptyArray $page.Params.tags ) $page.Params.keywords) "hits" 1 ) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
