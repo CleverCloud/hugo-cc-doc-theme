@@ -36,7 +36,7 @@ outline: 0;
 box-shadow: initial;
 }
 html{
-font-size: 10px;
+font-size: 1rem;
 scroll-behavior: smooth;
 }
 html,body{
@@ -52,7 +52,7 @@ h2,h3,h4,h5,h6{
   margin-top: 2.8rem;
  }
 body {
-  font: 1.7rem $global_font_body;
+  //font: 1.7rem $global_font_body;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; /* Default: auto */
   -webkit-text-size-adjust: 100%;
@@ -71,7 +71,6 @@ h1{
 }
 //H2 are section, needing space
 h2{
-  font:700 2.2rem $global_font;
   color:$global_color;
   margin-top: 60px;
 }
@@ -130,8 +129,8 @@ h3,h4,h5,h6{
   ul li:before {
     content: '\25CF';
     color: $lightpurple;
-    font-size: 1.4rem;
-    line-height: 2.3rem;
+    font-size: 0.5rem;
+    line-height: 1.5rem;
   }
 
   /* Reset counter for each list, including nested lists (with two counters) */
@@ -172,9 +171,9 @@ h3,h4,h5,h6{
 // footer //
 .main__footer{
   background: $grey1;
-  padding: 8rem 6rem;
+  padding: 4rem 6rem;
   margin-top: 6rem;
-  margin: 6rem -60px 0;
+  margin: 6rem -100px 0;
 }
 .footer__list{
   img{
@@ -183,14 +182,15 @@ h3,h4,h5,h6{
   }
   p{
     color:#525F7F;
-    font-size:1.6rem;
+    font-size:1rem;
     line-height:1.6;
   }
   h4{
-    font-size:1.8rem;
+    font-size:1.2rem;
     font-weight: 600;
     color: $black;
     margin-bottom:1.5rem;
+    margin-top: 1rem;
   }
 }
 .sign__up{
@@ -200,8 +200,7 @@ h3,h4,h5,h6{
     background: $white;
     width: 100%;
     display: block;
-    min-height:6.2rem;
-    padding: 1.2rem 1.2rem 0;
+    padding: 1em 1rem 0 1rem;
     box-sizing: border-box;
     font-weight: 600;
     border-radius: 5px;
@@ -214,37 +213,44 @@ h3,h4,h5,h6{
     position: absolute;
     left: 14px;
     top: 8px;
-    font-size: 1.2rem;
     color: #404852;
   }
-  .btn-2{
-    min-height: 4.5rem;
+  #newsletter-cta {
+    min-height: 3rem;
     position: absolute;
-    top: 8px;
-    right: 6px;
-    background: #3A3771;
+    top: 10px;
+    right: 10px;
+    background: $purple;
     color: $white;
     display: inline-block;
-    min-width: 4.5rem;
-    font-size: 1.8rem;
+    min-width: 3rem;
     box-shadow: 0 18px 24px rgba(68,63,153,0.3);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    &:focus,&:hover{
+      background-color: lighten($color: $purple, $amount: 20);
+    }
+    &:disabled{
+      opacity: .5;
+    }
+    i{
+      font-size: 1.2rem;
+    }
   }
 }
 .footer__top {
   border-bottom: 1px solid #D8D8E6;
-  padding-bottom: 6rem;
-  margin-bottom: 6rem;
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 // footer menu //
 .footer__menu{
   h4{
     color:$black;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 1.2rem;
   }
@@ -255,7 +261,7 @@ h3,h4,h5,h6{
       margin-bottom: .6rem;
       a{
         color:#525F7F;
-        font-size: 1.3rem;
+        font-size: 1rem;
         font-weight: 500;
         &:hover{
           color:$global_color1;
@@ -271,9 +277,9 @@ h3,h4,h5,h6{
 }
 .content__infos{
   color:#2C4050;
-  font-size: 1.8rem;
+  font-size: 1rem;
   h3{
-    font-size: 2.1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 2rem;
   }
@@ -309,7 +315,7 @@ h3,h4,h5,h6{
       text-align: center;
       line-height: 2rem;
       color:$lightpurple;
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-bottom: 0;
     }
   }
@@ -340,7 +346,7 @@ h3,h4,h5,h6{
 .content__notify{
   margin-top: 3rem;
   h4{
-    font-size: 2rem;
+    font-size: 1.2rem;
     color:#2C4050;
     font-weight: 600;
     margin-bottom: 3rem;
@@ -362,7 +368,7 @@ h3,h4,h5,h6{
     margin:0 0 20px 15px;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: .9em;
+    font-size: 1em;
   }
   #TableOfContents ul{
     padding-left: 0;
@@ -371,8 +377,9 @@ h3,h4,h5,h6{
     li{
       list-style: none;
       border-bottom: .8px solid $grey3;
-      padding: 0 0 1.5rem 0;
-      margin: 0 0 1.5rem 1.5rem;
+      padding: 0 0 1rem 0;
+      margin: 0 0 1rem 1rem;
+      font-size: .9rem;
       &:before{
         content:'';
       }
@@ -382,7 +389,6 @@ h3,h4,h5,h6{
         margin-bottom: 0;
       }
       a{
-        font-size: 1.5rem;
         color:$grey6;
         font-weight: 400;
         transition: all 100ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
