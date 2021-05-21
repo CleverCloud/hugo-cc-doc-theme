@@ -433,8 +433,7 @@ h3,h4,h5,h6{
 }
 
 .themainclass{
-	max-width: calc(600px + 600px + 5vw + 5vw + 32px + 32px);
-  padding: 0 5vw;
+	max-width: calc(800px + 800px + 5vw + 5vw + 32px + 32px);
   position: relative;
   //z-index at 10 for the autocomplete.
   z-index:5;
