@@ -26,6 +26,7 @@ ignorefiles = [ "somethingToIgnore.md"]
 	Subdir= true
 	disableSearch = false # default is false
 	disableReadmoreNav = false # set true to hide prev/next navigation, default is false
+	disableComments = false # set true to hive comments, default is false
 	highlightClihighlightClientSideentSide = false # set true to use highlight.pack.js instead of the default hugo chroma highlighter
 	menushortcutsnewtab = true # set true to open shortcuts links to a new tab/window
 	algolia_appId="algoliaAppId"

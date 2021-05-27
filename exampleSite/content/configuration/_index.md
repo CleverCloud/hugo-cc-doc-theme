@@ -40,4 +40,8 @@ In <code>config.toml</code> or a page's <code>frontmatter</code>, set <code>disa
 
 ## Search
 
-Disable search by setting <code>disableSearch = true</code> in <code>config.toml</code>. 
+Disable search by setting <code>disableSearch = true</code> in <code>config.toml</code>.
+
+## Comments
+
+Disable comments by setting <code>disableComments = true</code> in <code>config.toml</code>. 
