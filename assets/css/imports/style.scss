@@ -1,0 +1,511 @@
+.form-control:focus{
+box-shadow: initial;
+}
+.form-control{
+font-size: 1.4rem;
+position: relative;
+border-radius: 0;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+-ms-border-radius: 0;
+-o-border-radius: 0;
+}
+*:focus{
+outline: 0;
+box-shadow: initial;
+}
+a,
+a:hover,
+a:visited,
+a:focus,
+a:active{
+outline: none;
+}
+a {
+  color:$link-color;
+  text-decoration: $link-decoration;
+  &:hover,&:active,&:visited{color:$link-hover-color}
+  &:hover{color:$link-hover-color;text-decoration: link-hover-decoration;}
+}
+button,button:hover,button:focus,input,input:focus,.form-control,.form-control:focus,.page-link:focus{
+outline: none;
+box-shadow: initial;
+}
+.btn:focus, .btn.focus {
+outline: 0;
+box-shadow: initial;
+}
+html{
+font-size: 10px;
+scroll-behavior: smooth;
+}
+html,body{
+height: 100%;
+}
+/* Headings Typography*/
+
+ h1,h2,h3,h4,h5,h6{
+  font-weight: bold;
+}
+h2,h3,h4,h5,h6{
+  margin-bottom: 1.3rem;
+  margin-top: 2.8rem;
+ }
+body {
+  font: 1.7rem $global_font_body;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; /* Default: auto */
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+  color:$global_color_body;
+  letter-spacing: 0;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-text-stroke:1px transparent;
+  overflow-x: hidden;
+  background:$white;
+  line-height: 25px;
+}
+h1{
+  font:700 3.6rem $global_font;
+  color:$global_color;
+}
+//H2 are section, needing space
+h2{
+  font:700 2.2rem $global_font;
+  color:$global_color;
+  margin-top: 60px;
+}
+h3,h4,h5,h6{
+  font-family:$global_font;
+  color:$global_color;
+}
+
+// Lists
+@mixin numbered-list-before {        
+  display: inline-block;
+  left: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: $lightpurple;
+  background-color: lighten($lightpurple, 30%);
+  line-height: 11px;
+  min-width: 20px;
+  min-height: 20px;
+  margin: 3px 5px 0 0;
+  padding: 4px 4px 1px;
+  border-radius: 50%;
+  text-align: center;
+}
+.themainclass {
+
+  /* Reset the style of list */
+  ul, 
+  ol {
+    position: relative;
+    list-style: none;
+    padding: 0;
+  }
+
+  /* Add indentation of nested lists and remove bottom margin */
+  ul ul,
+  ol ol {
+    margin: 0;
+  }
+
+  /* Add general display for bullets and numbers */
+  ul li,
+  ol li {
+    padding-left: 3em;
+    margin: .6em 0;
+  }
+
+  ul li:before,
+  ol li:before {
+    position: absolute;
+    left: 2rem;
+    color: $lightpurple;
+  }
+
+  /* Style for bullet lists */
+  ul li:before {
+    content: '\25CF';
+    color: $lightpurple;
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+  }
+
+  /* Reset counter for each list, including nested lists (with two counters) */
+  ol {
+     li {
+      padding-left: 3em;
+      counter-increment: step-counter;
+    }
+    li:before {
+        content: counter(step-counter);
+        @include numbered-list-before;
+    }
+    ol>li{
+      padding-left: 3em;
+      counter-increment: step-counter2;
+      &:before {
+        content: counter(step-counter2);
+        @include numbered-list-before;}
+    }
+  }
+}
+
+.clearfix{
+  clear: both;
+}
+@media (min-width: 1200px){
+.container, .container-sm, .container-md, .container-lg, .container-xl {
+  max-width: 1300px;
+  }
+}
+// no gutters //
+.no-gutters{
+  margin: 0 -8px;
+}
+.no-gutters>.col, .no-gutters>[class*="col-"]{
+  padding: 0 8px;
+}
+// footer //
+.main__footer{
+  background: $grey1;
+  padding: 8rem 6rem;
+  margin-top: 6rem;
+  margin: 6rem -60px 0;
+}
+.footer__list{
+  img{
+    height: 3.6rem;
+    object-fit: contain;
+  }
+  p{
+    color:#525F7F;
+    font-size:1.6rem;
+    line-height:1.6;
+  }
+  h4{
+    font-size:1.8rem;
+    font-weight: 600;
+    color: $black;
+    margin-bottom:1.5rem;
+  }
+}
+.sign__up{
+  position: relative;
+  input{
+    border:1px solid #CDCDE3;
+    background: $white;
+    width: 100%;
+    display: block;
+    min-height:6.2rem;
+    padding: 1.2rem 1.2rem 0;
+    box-sizing: border-box;
+    font-weight: 600;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+  }
+  label.form__title {
+    position: absolute;
+    left: 14px;
+    top: 8px;
+    font-size: 1.2rem;
+    color: #404852;
+  }
+  .btn-2{
+    min-height: 4.5rem;
+    position: absolute;
+    top: 8px;
+    right: 6px;
+    background: #3A3771;
+    color: $white;
+    display: inline-block;
+    min-width: 4.5rem;
+    font-size: 1.8rem;
+    box-shadow: 0 18px 24px rgba(68,63,153,0.3);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+  }
+}
+.footer__top {
+  border-bottom: 1px solid #D8D8E6;
+  padding-bottom: 6rem;
+  margin-bottom: 6rem;
+}
+// footer menu //
+.footer__menu{
+  h4{
+    color:$black;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+  }
+  ul{
+    padding: 0;
+    li{
+      list-style: none;
+      margin-bottom: .6rem;
+      a{
+        color:#525F7F;
+        font-size: 1.3rem;
+        font-weight: 500;
+        &:hover{
+          color:$global_color1;
+        }
+      }
+    }
+  }
+}
+
+// payment //
+.common__head{
+  margin-bottom:4rem;
+}
+.content__infos{
+  color:#2C4050;
+  font-size: 1.8rem;
+  h3{
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  ul{
+    margin-bottom: 3rem;
+    li{
+      display: flex;
+      margin-bottom: 1.5rem;
+      align-items: baseline;
+      span{
+        font-weight: 400;
+      }
+    }
+    .list__infos{
+      flex: 1;
+      margin-left: 1rem;
+      span{
+        display: block;
+        padding-left: 1.5rem;
+      }
+    }
+  }
+}
+
+.custom__style{
+  li{
+    label{
+      display: inline-block;
+      height: 2rem;
+      width: 2rem;
+      background:#EBE1FD;
+      @include border-radius();
+      text-align: center;
+      line-height: 2rem;
+      color:$lightpurple;
+      font-size: 1.2rem;
+      margin-bottom: 0;
+    }
+  }
+
+}
+.a__link{
+  text-decoration: underline;
+  color:$lightpurple;
+  font-weight: 600;
+}
+.custom__style--1{
+  li{
+    position: relative;
+    &:before{
+      content: '';
+      width: 1rem;
+      height: 1rem;
+      background:$lightpurple;
+      @include border-radius();
+      position: absolute;
+      top:.9rem
+    }
+  }
+}
+.img__sec{
+  text-align: center;
+}
+.content__notify{
+  margin-top: 3rem;
+  h4{
+    font-size: 2rem;
+    color:#2C4050;
+    font-weight: 600;
+    margin-bottom: 3rem;
+  }
+}
+.side__border {
+  border-left: 3px solid #CDCDE3;
+  padding-left: 3rem;
+}
+.aside__bg{
+  z-index: 0;
+  background:$white;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  border-radius:5px;
+  box-shadow: 7px 7px 27px 8px rgba(97,108,143,.15);
+  h3 
+  {
+    margin:0 0 20px 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: .9em;
+  }
+  #TableOfContents ul{
+    padding-left: 0;
+    margin-bottom: 0;
+    padding-bottom: 0.5rem;
+    li{
+      list-style: none;
+      border-bottom: .8px solid $grey3;
+      padding: 0 0 1.5rem 0;
+      margin: 0 0 1.5rem 1.5rem;
+      &:before{
+        content:'';
+      }
+      &:last-child{
+        border-bottom: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+      a{
+        font-size: 1.5rem;
+        color:$grey6;
+        font-weight: 400;
+        transition: all 100ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
+        &a:hover,&a:focus {
+          color:$grey6;
+        }
+        &.active {
+          color: $lightpurple;
+          position: relative;
+          //font-weight: 800;
+          &:before{
+            transform: rotate(270deg);
+            width: 7px;
+            content: url('data:image/svg+xml;utf8;base64,PHN2ZyBjbGFzcz0iYmxvY2sgaC1mdWxsIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNCA4Ij48cGF0aCBkPSJNNyA4YTEgMSAwIDAxLS43MS0uMjlsLTYtNkExIDEgMCAwMTEuNzEuMjlMNyA1LjU5IDEyLjI5LjI5YTEgMSAwIDExMS40MiAxLjQybC02IDZBMSAxIDAgMDE3IDh6Ii8+PC9zdmc+');
+            position: absolute;
+            top: -2px;
+            display: block;
+            left: -21px;
+          }
+        }
+      }
+    }
+  }
+}
+.help__box__list{
+  margin-bottom: 1.5rem;
+}
+.navbar {padding:0}
+.navbar-light .navbar-toggler{
+  color:$global_color1;
+  border-color:$global_color1;
+  @include border-radius1();
+}
+.mob__login{
+  .login__header {
+    position: absolute;
+    top: 20px;
+    right: 32px;
+  }
+}
+.popular__headRight{
+  flex: 1;
+}
+#sidebarCollapse{
+  i{
+    font-size: 1.6rem;
+  }
+}
+
+.themainclass{
+	max-width: calc(800px + 800px + 5vw + 5vw + 32px + 32px);
+  position: relative;
+  //z-index at 10 for the autocomplete.
+  z-index:5;
+}
+
+.next-prev-page h4{
+  color:$black;
+}
+
+//Alert headings
+.alert-heading {
+  // Specified to prevent conflicts of changing $headings-color
+  color: inherit;
+  margin-bottom: 1.3rem;
+  margin-top: 1.3rem;
+}
+
+// Code Highlighter
+
+// Simple lines of code
+code {
+  background-color: $grey1;
+  white-space: pre-wrap;
+  padding: 0 3px;
+  color:$grey8;
+}
+.highlight code{
+  background-color: transparent;
+}
+pre {
+  background-color: #F6F6FB !important;
+  padding: 2rem;
+  border-radius: 5px;
+  position: relative;
+  code {background-color: transparent;}
+  .copy.btn-outline-light{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    opacity: 0;
+    color: $lightpurple;
+    border-color: $lightpurple;
+    transition: all .2s ease-out;
+    &:hover{
+      color: white;
+      border-color: darken($lightpurple, 30%);
+      background-color: darken($lightpurple, 30%);
+      &:active{
+        color: $lightpurple;
+        border-color: darken($lightpurple, 30%);
+        background-color: darken($lightpurple, 30%);
+      }
+    }
+  }
+  &:hover{
+    .btn-outline-light {
+      opacity: 1;
+    }
+    
+  }
+}
+
+.icon {
+  vertical-align: middle;
+  overflow:visible;
+  height:1em;
+  width:1em;
+  fill:currentColor;
+}
+
+.shortcode-debug {
+  border-style: dashed;
+  border-width: 3px;
+  border-color: darkgreen;
+}

@@ -13,9 +13,10 @@
 
 {{ if $.Site.Params.Debug }}
 <div class="shortcode-debug"  >
-  <strong>Childpages shortcode</strong>
-  <hr />
+    <strong>Childpages shortcode</strong>
+    <hr />
 {{ end }}
+
 <ul class="docs-children list-unstyled">
 	{{- .Scratch.Set "pages" $cpage.Pages }}
     {{- if $cpage.Sections}}
@@ -34,9 +35,9 @@
 
 
 {{ define "childs" }}
-		{{- range .menu }}
-			<li class="h2 py-1">
-				<a href="{{.RelPermalink}}"> {{ .Title }} </a>
-			</li>
-		{{ end }}
+    {{- range .menu }}
+    <li class="h2 py-1">
+        <a href="{{.RelPermalink}}"> {{ .Title }} </a>
+    </li>
+    {{ end }}
 {{ end }}

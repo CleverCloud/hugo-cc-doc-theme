@@ -2,9 +2,10 @@
 
 {{ if $.Site.Params.Debug }}
 <div class="shortcode-debug"  >
-  <strong>panel shortcode</strong>
-  <hr />
+    <strong>panel shortcode</strong>
+    <hr />
 {{ end }}
+
 <div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-{{ $style }} rounded" style="border-width:4px !important;">
     <div class="wrap border border-left-0 rounded">
         {{ with .Get "title" }}

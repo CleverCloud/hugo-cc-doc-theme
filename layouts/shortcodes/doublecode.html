@@ -3,21 +3,23 @@
 
 {{ $identifier := "" }}
 {{ $filepath := .Get "file"}}
+
 {{ if ($filepath) }}
-{{ .Scratch.Set "content" ($filepath | readFile) }}
-{{ .Scratch.Set "identifier" (first 10 (md5 (.Scratch.Get "content"))) }}
+    {{ .Scratch.Set "content" ($filepath | readFile) }}
+    {{ .Scratch.Set "identifier" (first 10 (md5 (.Scratch.Get "content"))) }}
 {{ else }}
-{{ .Scratch.Set "content" .Inner }}
-{{ .Scratch.Set "identifier" (first 10 (md5 .Inner)) }}
+    {{ .Scratch.Set "content" .Inner }}
+    {{ .Scratch.Set "identifier" (first 10 (md5 .Inner)) }}
 {{ end}}
 
 {{ $lang := .Get "lang" }}
 
 {{ if $.Site.Params.Debug }}
 <div class="shortcode-debug"  >
-  <strong>doublecode shortcode</strong>
-  <hr />
+    <strong>doublecode shortcode</strong>
+    <hr />
 {{ end }}
+
 <div class="border border-light" style="border-width:3px!important;">
 
     <div class="px-3 py-2">

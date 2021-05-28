@@ -1,7 +1,8 @@
-{{$title := .Get "title" }}
+{{ $title := .Get "title" }}
 {{- if not $title -}}
 {{- errorf "missing tooltip title" -}}
 {{- end -}}
+
 {{ .Scratch.Set "title" $title }}
 {{ $def := index .Site.Data.glossary (.Scratch.Get "title")   }}
 
@@ -12,10 +13,14 @@
 
 {{ if $.Site.Params.Debug }}
 <div class="shortcode-debug" >
-    &lbrace;&lbrace; &lt; tooltip  title="{{$title}}" &gt; &rbrace;&rbrace;{{ .Inner }}&lbrace;&lbrace; &lt; /tooltip &gt; &rbrace;&rbrace;
-  <hr />
+    <pre>
+        <tooltip  title="{{$title}}">{{ .Inner }}</tooltip>
+    </pre>
+    <hr />
 {{ end }}
+
 <a href="#" data-placement="top" data-animation="false" data-toggle="tooltip" title="{{ $def }}">{{ .Inner }}</a> 
+
 {{ if $.Site.Params.Debug }}
 </div>
 {{ end }}

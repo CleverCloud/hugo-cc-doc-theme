@@ -11,16 +11,16 @@
     </title>
 
     <!-- Load stylesheet -->
-    {{ $algolia := resources.Get "css/algolia.css" }}
-    {{ $cleverCSS := resources.Get "clever/style.scss"  | resources.ExecuteAsTemplate "clever/styled.scss" . | toCSS  }}
-    {{ $css := slice $cleverCSS $algolia | resources.Concat "css/bundle.css" | minify }}
+    {{ $algolia := resources.Get "assets/css/algolia.css" }}
+    {{ $style := resources.Get "assets/css/main.scss" | toCSS  }}
+    {{ $css := slice $cleverCSS $algolia | resources.Concat "dist/bundle.css" | minify }}
  
     {{ if eq hugo.Environment "development" }}
     <link type=text/css rel=stylesheet href="{{ $css.RelPermalink }}" media="screen, print" />
     {{else}}
-    {{ $purgedCss := $css | postCSS (dict "config" "./assets/css/postcss.config.js") }}
-    {{ $secureCleverCSS := $purgedCss | resources.Fingerprint site.Params.digest }}
-    <link type=text/css rel=stylesheet href="{{ $secureCleverCSS.RelPermalink }}" integrity="{{ $secureCleverCSS.Data.Integrity }}" media="screen, print" />
+    {{ $purgedCss := $css | postCSS (dict "config" "postcss.config.js") }}
+    {{ $secureCss := $purgedCss | resources.Fingerprint site.Params.digest }}
+    <link type=text/css rel=stylesheet href="{{ $secureCss.RelPermalink }}" integrity="{{ $secureCss.Data.Integrity }}" media="screen, print" />
     {{end}}
 
     <!-- Icons -->
@@ -41,27 +41,28 @@
 
     <!-- JSON Feed -->
     {{ if .OutputFormats.Get "json" }}
-    <link href="{{ if .OutputFormats.Get "json" }}{{ .Site.BaseURL }}feed.json{{ end }}" rel="alternate"
-        type="application/json" title="{{ .Site.Title }}" />
+    <link href="{{ if .OutputFormats.Get "json" }}{{ .Site.BaseURL }}feed.json{{ end }}" rel="alternate" type="application/json" title="{{ .Site.Title }}" />
     {{ end }}
 
     <link rel="search" href="{{ .Site.BaseURL }}opensearch.xml" title="Websearch" type="application/opensearchdescription+xml">
 
     <!-- Load required Javascript -->
-    {{ $jquery := resources.Get "js/vendor/jquery.min.js" }}
-    {{ $popperjs := resources.Get "js/vendor/popper.min.js" }}
-    {{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js" }}
-    {{ $algoliasearch := resources.Get "js/vendor/algoliasearch.umd.js" }}
-    {{ $autocomplete := resources.Get "js/vendor/autocomplete.min.js" }}
-    {{ $clipboard := resources.Get "js/vendor/clipboard.min.js" }}
-    {{ $darkModeSwitch := resources.Get "js/dark-mode-switch.min.js" }}
-    {{ $search := resources.Get "js/search.js" | resources.ExecuteAsTemplate "search.js" .  }}
-    {{ $toc := resources.Get "js/toc.js" | resources.ExecuteAsTemplate "toc.js" .}}
+    {{ $jquery := resources.Get "dist/vendor/jquery.min.js" }}
+    {{ $popperjs := resources.Get "dist/vendor/popper.min.js" }}
+    {{ $bootstrap := resources.Get "dist/vendor/bootstrap.min.js" }}
+    {{ $algoliasearch := resources.Get "dist/vendor/algoliasearch.umd.js" }}
+    {{ $autocomplete := resources.Get "dist/vendor/autocomplete.min.js" }}
+    {{ $clipboard := resources.Get "dist/vendor/clipboard.min.js" }}
+
+    {{ $darkModeSwitch := resources.Get "assets/js/dark-mode-switch.min.js" }}
+    {{ $search := resources.Get "assets/js/search.js" | resources.ExecuteAsTemplate "search.js" .  }}
+    {{ $toc := resources.Get "assets/js/toc.js" | resources.ExecuteAsTemplate "toc.js" .}}
+
     {{ $defines := dict "global" `globalThis` }}
     {{ $opts := dict "defines" $defines "minify" true}}
-    {{ $req := slice $jquery $popperjs $bootstrap $darkModeSwitch $clipboard $algoliasearch $autocomplete $toc $search | resources.Concat "js/bundle.js" | js.Build $opts }}
-    {{ $secureCleverJS := $req | resources.Fingerprint site.Params.digest }}
-    <script src="{{ $secureCleverJS.RelPermalink }}" integrity="{{ $secureCleverJS.Data.Integrity }}" defer></script>
+    {{ $req := slice $jquery $popperjs $bootstrap $darkModeSwitch $clipboard $algoliasearch $autocomplete $toc $search | resources.Concat "dist/bundle.js" | js.Build $opts }}
+    {{ $secureJs := $req | resources.Fingerprint site.Params.digest }}
+    <script src="{{ $secureJs.RelPermalink }}" integrity="{{ $secureJs.Data.Integrity }}" defer></script>
 
     <!-- Only include the tracking when using `hugo` or adding `--environment production` -->
     {{ if eq hugo.Environment "production" }}

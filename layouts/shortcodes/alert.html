@@ -1,22 +1,25 @@
-{{$level := .Get 0}}
+{{ $level := .Get 0 }}
 {{- if not $level -}}
-{{- errorf "missing alert level" -}}
+    {{- errorf "missing alert level" -}}
 {{- end -}}
+
 {{$title := .Get 1}}
 
 {{ if $.Site.Params.Debug }}
 <div class="shortcode-debug" >
-  &lbrace;&lbrace; &lt; alert  "{{$level}}" "{{$title}}" &gt; &rbrace;&rbrace;
-    innerContent
-  &lbrace;&lbrace; &lt; /alert  &gt; &rbrace;&rbrace;
-  <hr />
+    <pre>
+        <alert  "{{$level}}" "{{$title}}">
+            innerContent
+        </alert>
+    </pre>
+    <hr />
 {{ end }}
 
 <div class="alert alert-{{$level}}" role="alert">
-  {{- if $title -}}
+    {{- if $title -}}
     <h4 class="alert-heading">{{$title}}</h4>
-  {{- end -}}
-  {{ trim .Inner " \n" | markdownify }}
+    {{- end -}}
+    {{ trim .Inner " \n" | markdownify }}
 </div>
   
 {{ if $.Site.Params.Debug }}

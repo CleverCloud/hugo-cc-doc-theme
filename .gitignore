@@ -12,3 +12,4 @@ yarn.lock
 
 /bin
 /public
+/dist

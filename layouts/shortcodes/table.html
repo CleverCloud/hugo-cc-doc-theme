@@ -2,9 +2,10 @@
 
 {{ if $.Site.Params.Debug }}
 <div class="shortcode-debug"  >
-  <strong>table shortcode</strong>
-  <hr />
+    <strong>table shortcode</strong>
+    <hr />
 {{ end }}
+
 <div class="table {{ $style }}" role="alert">
     {{ print .Inner | markdownify }}
 </div>

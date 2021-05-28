@@ -1,4 +1,3 @@
-
 module.exports = {    
     plugins: [
       require('postcss-purgecss')({
@@ -8,10 +7,10 @@ module.exports = {
             './**/*.html', 
             './**/*.js',
             './content/**/*.md'
-          ],
+        ],
         css : ["/**/*.css"],
         whitelist: ["TableOfContents", 'arrow', 'tooltip-inner',  'tooltip', 'bs-tooltip-top'],
-        whitelistPatternsChildren : [ /^pre/, /algolia-autocomplete/,/anchor/,/alert/,/sidebarCollapse/,],
+        whitelistPatternsChildren : [ /^pre/, /algolia-autocomplete/, /anchor/, /alert/,/sidebarCollapse/],
       })
     ]
-  }
+}

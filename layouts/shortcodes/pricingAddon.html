@@ -1,14 +1,16 @@
-{{$addon := .Get 0}}
+{{ $addon := .Get 0 }}
 {{- if not $addon -}}
 {{- errorf "missing addon value" -}}
 {{- end -}}
 
-{{$features := .Get 1}}
+{{ $features := .Get 1 }}
 
 {{ if $.Site.Params.Debug }}
 <div class="shortcode-debug" >
-  &lbrace;&lbrace; &lt; pricingAddon "{{$addon}}" "{{$features}}" &gt; &rbrace;&rbrace;
-  <hr />
+    <pre>
+        <pricingAddon "{{$addon}}" "{{$features}}">
+    </pre>
+    <hr />
 {{ end }}
 
 <!-- Documentation is here: https://www.clever-cloud.com/doc/clever-components/?path=/docs/%F0%9F%9B%A0-pricing-cc-pricing-product--default-story -->

@@ -4,7 +4,7 @@
   "description": "Clever Cloud Hugo documentation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node build.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,12 +17,14 @@
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1",
-    "autoprefixer": "^9.8.6",
-    "postcss-cli": "^7.1.2",
-    "postcss-import": "^12.0.1",
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "autoprefixer": "^10.2.6",
+    "esbuild": "^0.12.5",
+    "esbuild-sass-plugin": "^1.4.3",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.2",
     "postcss-purgecss": "^2.0.3",
-    "postcss-reporter": "^7.0.0",
+    "postcss-reporter": "^7.0.2",
     "svg-sprite": "^1.5.0"
   }
 }

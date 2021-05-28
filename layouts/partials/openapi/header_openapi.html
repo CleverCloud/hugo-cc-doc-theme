@@ -1,34 +1,28 @@
 
 <button type="button" id="sidebarCollapse" class="btn btn-info d-block d-md-none d-lg-none">
     {{- partial "svg.html"  (dict "id" "bars" "class" "icon" "width" 32 "height" 32) -}}
-
 </button>
   
 
 <div style="background-color: #13172e;width: 330px; float:left">
     <a href="/">
         <img src="{{ .Site.BaseURL }}{{ .Site.Params.menuLogo }}" class="img-fluid logo-sidebar_img" style="padding: 1rem;" alt="Clever Cloud Logo">
-      </a>
+    </a>
 </div>
 
 <header>
 
 
     <nav class="navbar navbar-expand-lg navbar-light">
-
-  
         {{- if .Site.Menus.shortcuts}}
 
-        <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarMainCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarMainCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarContent">
 
                 <ul class="navbar-nav ml-auto">
-
-
-
                     {{- with .Site.Menus.shortcuts}}
                         {{- range sort . "Weight"}}
                             <li class="nav-item">
@@ -42,17 +36,17 @@
                         <div class="login__header">
                             <a href="{{ .Site.Params.signUpURL }}" class="btn">Login / Signup</a>
                         </div>
-                      </li>
+                    </li>
                 </ul>
             </div>
-    {{- end}}
-        
+
+        {{- end}}
     </nav>
 
     <div class="mob__login d-block d-lg-none">
         <div class="login__header">
             <a href="{{ .Site.Params.signUpURL }}" class="btn">Login / Signup</a>
         </div>
-      </div>
+    </div>
 
 </header>
