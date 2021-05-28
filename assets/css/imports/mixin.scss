@@ -1,0 +1,46 @@
+// transition //
+@mixin global-transition(){
+  transition:all ease-in-out 0.8s;
+  -webkit-transition:all ease-in-out 0.8s;
+  -moz-transition:all ease-in-out 0.8s;
+  -ms-transition:all ease-in-out 0.8s;
+  -o-transition:all ease-in-out 0.8s;
+}
+// box shadow //
+@mixin box-shadow(){
+  box-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+//transform scale //
+@mixin global-scale(){
+  transform:scale(1.2);
+}
+// border radius //
+@mixin border-radius(){
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+@mixin border-radius1(){
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+// transform translate //
+@mixin translate(){
+  transform:translate(0,200%);
+  -webkit-transform:translate(0,200%);
+  -moz-transform:translate(0,200%);
+  -ms-transform:translate(0,200%);
+  -o-transform:translate(0,200%);
+}
+@mixin translate1(){
+  transform:translate(0,0);
+  -webkit-transform:translate(0,0);
+  -moz-transform:translate(0,0);
+  -ms-transform:translate(0,0);
+  -o-transform:translate(0,0);
+}

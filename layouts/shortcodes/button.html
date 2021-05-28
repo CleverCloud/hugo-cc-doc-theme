@@ -3,12 +3,14 @@
 
 {{ if $.Site.Params.Debug }}
 <div class="shortcode-debug"  >
-  <strong>button shortcode</strong>
-  <hr />
+    <strong>button shortcode</strong>
+    <hr />
 {{ end }}
+
 <a href="{{ $link }}" class="btn btn-{{ $style }}">
     {{ print .Inner | markdownify }}
 </a>
+
 {{ if $.Site.Params.Debug }}
 </div>
 {{ end }}

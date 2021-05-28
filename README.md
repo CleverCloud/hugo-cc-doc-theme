@@ -16,7 +16,7 @@ In order to manage vendors dependencies, we use a package.json file to track dep
 
 You can change all colors in the theme by choosing custom scss variable under `/assets/clever/custom.scss`. You can also replace Logos and sign up links in Hugo parameters:
 
-```
+```toml
 [params]
 	footerLogo = "images/footerlogo.svg"
 	headerLogo = "images/logo-2-doc.svg"
@@ -24,6 +24,7 @@ You can change all colors in the theme by choosing custom scss variable under `/
 	signUpURL = "https://api.clever-cloud.com/v2/sessions/signup" # Configure SignUp link
 	editURL = "https://gitlab.corp.clever-cloud.com/clever-cloud/wip-new-doc/edit/master/" # Configure content edition link
 ```
+
 ## Troubleshoot
 
 ### My CSS is not bundled

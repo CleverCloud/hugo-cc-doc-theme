@@ -5,23 +5,23 @@
     <body>
 
         <section class="main__wrapper">
-        <div id="main__content">
+            <div id="main__content">
 
-        {{- partial "openapi/header_openapi.html" . -}}
-
-
-        <main class="themainclass">
-
-        {{- block "main" . }}
-        {{- end }}
+            {{- partial "openapi/header_openapi.html" . -}}
 
 
-      </main>
+            <main class="themainclass">
 
-      {{- partial "clever-footer.html" . -}}
+            {{- block "main" . }}
+            {{- end }}
 
-    </div>
-    </section>
+
+            </main>
+
+            {{- partial "clever-footer.html" . -}}
+
+            </div>
+        </section>
 
     {{- partial "footer.html" . -}}
     </body>

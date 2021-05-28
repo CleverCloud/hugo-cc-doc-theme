@@ -11,6 +11,5 @@ features = ["documentation", "bootstrap", "sass", "search"]
 min_version = "0.75.0"
 
 [author]
-  name = "Clever Cloud"
-  homepage = "https://clever-cloud.com"
-
+    name = "Clever Cloud"
+    homepage = "https://clever-cloud.com"

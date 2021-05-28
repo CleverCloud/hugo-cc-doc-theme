@@ -1,7 +1,7 @@
 <!-- get path to file to read with first param of shortcode -->
-{{$file_path := .Get 0}}
+{{ $file_path := .Get 0 }}
 <!-- get str_replacement_dict if present in current page front matter -->
-{{$dict := $.Page.Params.str_replace_dict }}
+{{ $dict := $.Page.Params.str_replace_dict }}
 <!-- readfile at given path -->
 {{ $pc := site.GetPage $file_path }}
 {{ $partial_content := $pc.Content }}
@@ -20,10 +20,15 @@
 
 {{ if $.Site.Params.Debug }}
 <div class="shortcode-debug" >
-  &lbrace;&lbrace; &lt; readfile  "{{$file_path}}" &gt; &rbrace;&rbrace;
-  {{ if $dict }}<p>{{ printf "%#v" $dict }}</p>{{ end }}
-  <hr />
+    <pre>
+        <readfile  "{{$file_path}}">
+    </pre>
+    {{ if $dict }}
+        <p>{{ printf "%#v" $dict }}</p>
+    {{ end }}
+    <hr />
 {{ end }}
+
 {{ $partial_content | markdownify }}
 
 {{ if $.Site.Params.Debug }}

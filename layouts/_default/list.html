@@ -1,10 +1,13 @@
 {{ define "main" }}
 
   {{- .Scratch.Set "pages" .Pages }}
+
   {{- if .Sections}}
-  {{- .Scratch.Set "pages" (.Pages | union .Sections) }}
+    {{- .Scratch.Set "pages" (.Pages | union .Sections) }}
   {{- end}}
+
   {{- $pages := (.Scratch.Get "pages") }}
+  
   {{ partial "pagelayout.html" (dict "context" . "section_to_display" $pages ) }}
 
 {{ end }}
