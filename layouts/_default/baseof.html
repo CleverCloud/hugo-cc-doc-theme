@@ -37,6 +37,14 @@
                         {{- end -}}
                     </div> 
 
+                    <div>
+                      {{ if and (ne .Site.Params.disableComments true) (ne .Params.disableComments true) }}
+                        <div class="position-relative mx-auto col-lg-9">
+                          {{ partial "comments.html" . }}
+                        </div>
+                      {{ end }}
+                    </div>
+
                 </div>
 
             </div> 

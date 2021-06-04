@@ -1,6 +1,6 @@
 <div class=" overflow-hidden p-3 mt-5 shadow next-prev-page">
 
-    <h4 class="text-center">Read more</h4>
+    <h4 id="readmore" class="text-center" style="margin-top: 1.3rem;">Read more</h4>
 
     <!-- Next prev page -->
     {{- $currentNode := . -}}
@@ -47,9 +47,9 @@
             </a>
         {{- end }}
     </div>
-    <div class="d-flex justify-content-center">
-        <a class="p-1 mr-3 d-inline-block " href="{{ .Site.Params.contentRepository }}edit/master/{{.Page.File.Path}}">
-            {{- partial "svg.html"  (dict "id" "github" "class" "icon" "width" 32 "height" 32) -}}
+    <div class="d-flex mt-3 mb-3 justify-content-center">
+        <a class="p-1 d-inline-block " href="{{ .Site.Params.contentRepository }}edit/master/{{.Page.File.Path}}">
+            {{- partial "svg.html"  (dict "id" "github" "class" "icon mr-1" "width" 32 "height" 32) -}}
             Fork this page</a>
     </div>
 </div>
