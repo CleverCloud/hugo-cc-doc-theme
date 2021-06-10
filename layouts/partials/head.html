@@ -13,12 +13,12 @@
     <!-- Load stylesheet -->
     {{ $algolia := resources.Get "assets/css/algolia.css" }}
     {{ $style := resources.Get "assets/css/main.scss" | toCSS  }}
-    {{ $css := slice $cleverCSS $algolia | resources.Concat "dist/bundle.css" | minify }}
+    {{ $css := slice $style $algolia | resources.Concat "dist/bundle.css"}}
  
     {{ if eq hugo.Environment "development" }}
     <link type=text/css rel=stylesheet href="{{ $css.RelPermalink }}" media="screen, print" />
     {{else}}
-    {{ $purgedCss := $css | postCSS (dict "config" "postcss.config.js") }}
+    {{ $purgedCss := $css | postCSS (dict "config" "postcss.config.js") | minify }}
     {{ $secureCss := $purgedCss | resources.Fingerprint site.Params.digest }}
     <link type=text/css rel=stylesheet href="{{ $secureCss.RelPermalink }}" integrity="{{ $secureCss.Data.Integrity }}" media="screen, print" />
     {{end}}
@@ -47,22 +47,10 @@
     <link rel="search" href="{{ .Site.BaseURL }}opensearch.xml" title="Websearch" type="application/opensearchdescription+xml">
 
     <!-- Load required Javascript -->
-    {{ $jquery := resources.Get "dist/vendor/jquery.min.js" }}
-    {{ $popperjs := resources.Get "dist/vendor/popper.min.js" }}
-    {{ $bootstrap := resources.Get "dist/vendor/bootstrap.min.js" }}
-    {{ $algoliasearch := resources.Get "dist/vendor/algoliasearch.umd.js" }}
-    {{ $autocomplete := resources.Get "dist/vendor/autocomplete.min.js" }}
-    {{ $clipboard := resources.Get "dist/vendor/clipboard.min.js" }}
-
-    {{ $darkModeSwitch := resources.Get "assets/js/dark-mode-switch.min.js" }}
-    {{ $search := resources.Get "assets/js/search.js" | resources.ExecuteAsTemplate "search.js" .  }}
-    {{ $toc := resources.Get "assets/js/toc.js" | resources.ExecuteAsTemplate "toc.js" .}}
-
-    {{ $defines := dict "global" `globalThis` }}
-    {{ $opts := dict "defines" $defines "minify" true}}
-    {{ $req := slice $jquery $popperjs $bootstrap $darkModeSwitch $clipboard $algoliasearch $autocomplete $toc $search | resources.Concat "dist/bundle.js" | js.Build $opts }}
-    {{ $secureJs := $req | resources.Fingerprint site.Params.digest }}
-    <script src="{{ $secureJs.RelPermalink }}" integrity="{{ $secureJs.Data.Integrity }}" defer></script>
+    {{ $opts := dict "defines" "minify" true }}
+    {{ $req := resources.Get "assets/js/main.js" | resources.ExecuteAsTemplate "main.js" | resources.Concat "dist/bundle.js" | js.Build $opts }}
+    {{ $script := $req | resources.Fingerprint site.Params.digest }}
+    <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
 
     <!-- Only include the tracking when using `hugo` or adding `--environment production` -->
     {{ if eq hugo.Environment "production" }}
