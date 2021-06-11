@@ -1,6 +1,6 @@
 function createIcon(iconId) {
     const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-    use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/icons.svg#' + iconId);
+    use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/images/icons.svg#' + iconId);
 
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.classList = "icon";

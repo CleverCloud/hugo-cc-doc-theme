@@ -11,8 +11,8 @@
     </title>
 
     <!-- Load stylesheet -->
-    {{ $algolia := resources.Get "assets/css/algolia.css" }}
-    {{ $style := resources.Get "assets/css/main.scss" | toCSS  }}
+    {{ $algolia := resources.Get "css/algolia.css" }}
+    {{ $style := resources.Get "css/main.scss" | toCSS }}
     {{ $css := slice $style $algolia | resources.Concat "dist/bundle.css"}}
  
     {{ if eq hugo.Environment "development" }}
@@ -47,8 +47,9 @@
     <link rel="search" href="{{ .Site.BaseURL }}opensearch.xml" title="Websearch" type="application/opensearchdescription+xml">
 
     <!-- Load required Javascript -->
-    {{ $opts := dict "defines" "minify" true }}
-    {{ $req := resources.Get "assets/js/main.js" | resources.ExecuteAsTemplate "main.js" | resources.Concat "dist/bundle.js" | js.Build $opts }}
+    {{ $defines := dict "global" `globalThis` "sourceMap" true }}
+    {{ $opts := dict "defines" $defines "minify" true }}
+    {{ $req := resources.Get "js/main.js" | resources.ExecuteAsTemplate "main.js" . | js.Build $opts }}
     {{ $script := $req | resources.Fingerprint site.Params.digest }}
     <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
 

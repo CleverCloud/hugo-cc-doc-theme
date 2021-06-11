@@ -6,7 +6,7 @@ Run `make` to make sure that every vendor dependencies and are installed, and th
 
 ## How to add an Icon to the theme
 
-This theme uses SVGs for icons instead of Fonts. Take a look at `Makefile` which copy necessary svgs from the fontawesome dependency. It will generate an SVG sprite under `static/icons.svg`.
+This theme uses SVGs for icons instead of Fonts. Take a look at `Makefile` which copy necessary svgs from the fontawesome dependency. It will generate an SVG sprite under `static/images/icons.svg`.
 
 ## How to add a Vendor JS or CSS dependency
 
@@ -18,9 +18,9 @@ You can change all colors in the theme by choosing custom scss variable under `/
 
 ```toml
 [params]
-	footerLogo = "images/footerlogo.svg"
-	headerLogo = "images/logo-2-doc.svg"
-	menuLogo = "images/logo-clever-cloud.svg"
+	footerLogo = "images/footer-logo.svg"
+	headerLogo = "images/header-logo.svg"
+	menuLogo = "images/menu-logo.svg"
 	signUpURL = "https://api.clever-cloud.com/v2/sessions/signup" # Configure SignUp link
 	editURL = "https://gitlab.corp.clever-cloud.com/clever-cloud/wip-new-doc/edit/master/" # Configure content edition link
 ```
