@@ -2,27 +2,18 @@
 <html>
     {{- partial "openapi/head_openapi.html" . -}}
 
-    <body>
-
-        <section class="main__wrapper">
-        <div id="main__content">
-
+    <body class="openapi-doc">
+        <!-- The header -->
         {{- partial "openapi/header_openapi.html" . -}}
 
-
-        <main class="themainclass">
-
+        <!-- The main page content (<rapi-doc>) -->
         {{- block "main" . }}
         {{- end }}
 
-
-      </main>
-
+      <!-- The footer -->
       {{- partial "clever-footer.html" . -}}
 
-    </div>
-    </section>
-
+    <!-- Useless, since the partial is empty -->
     {{- partial "footer.html" . -}}
     </body>
 </html>

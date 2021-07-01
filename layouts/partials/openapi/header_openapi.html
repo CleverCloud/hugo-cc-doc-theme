@@ -5,16 +5,15 @@
 </button>
   
 
-<div style="background-color: #13172e;width: 330px; float:left">
-    <a href="/">
-        <img src="{{ .Site.BaseURL }}{{ .Site.Params.menuLogo }}" class="img-fluid logo-sidebar_img" style="padding: 1rem;" alt="Clever Cloud Logo">
-      </a>
-</div>
+<header style="padding: 0; margin: 0;">
+    <div style="background-color: #13172e;width: 330px; float:left; padding: 1rem 4rem;">
+        <a href="/">
+            <img src="{{ .Site.BaseURL }}{{ .Site.Params.menuLogo }}" class="img-fluid logo-sidebar_img" style="padding: 1rem;" alt="Clever Cloud Logo">
+          </a>
+    </div>
 
-<header>
 
-
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="padding: 2rem 6rem;">
 
   
         {{- if .Site.Menus.shortcuts}}
