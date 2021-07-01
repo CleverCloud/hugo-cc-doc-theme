@@ -1,5 +1,117 @@
-<footer>
-    <div class="main__footer">
-        {{- partial "footer-content.html" . -}}
-    </div>
-</footer>
+
+
+        <footer>
+            <div class="main__footer">
+              <div class="containers">
+                <div class="footer__top">
+                  <div class="row">
+                    <div class="col* col-sm-12 col-md-12 col-lg-3 footer__list">
+                      <a href="https://clever-cloud.com/">
+                        <figure>
+                          <img src="{{ .Site.BaseURL }}{{ .Site.Params.footerLogo }}" class="img-fluid footer-logo" alt="title">
+                        </figure>
+                      </a>
+                    </div>
+  
+                    <div class="col* col-sm-6 col-md-6 col-lg-6 footer__list">
+                      <p>Clever Cloud helps companies and IT professionals to achiveve software delivery faster, reduce their feedback loop, focus on their core value and stop worrying about their hosting infrastructure by providing a solution for application sustainability.</p>
+                    </div>
+  
+                    <div class="col* col-sm-6 col-md-6 col-lg-3 footer__list">
+                      <h4>Sign up for Newsletter</h4>
+
+                      <form action="/subscribe/" method="get"></form>
+                        <div class="sign__up">
+                          <label class="form__title">Your Email</label>
+                          <input name="EMAIL" tabindex="1" type="email" id="newsletter-field" placeholder="email@domain.com" autocomplete="off">
+                          <input name="SOURCE" value="doc" type="hidden" class="form-control">
+                          <button type="submit" value="" id="newsletter-cta" tabindex="2" class="btn btn-2">{{- partial "svg.html"  (dict "id" "arrow-right" "class" "icon" "width" 32 "height" 32) -}}</button>
+                        </div><span id="newsletter-status" class="label label-default"></span>
+                      </form>
+  
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="footer__bottom">
+                  <div class="row">
+                    <div class="col* col-sm-6 col-md-4 col-lg-2 footer__menu">
+                      <h4>Add Ons</h4>
+                      <ul>
+                        <li><a href="https://www.clever-cloud.com/kafka">Kafka Hosting</a></li>
+                        <li><a href="https://www.clever-cloud.com/postgresql-hosting">PostgreSQL Hosting </a></li>
+                        <li><a href="https://www.clever-cloud.com/mysql-hosting">MySQL Hosting</a></li>
+                        <li><a href="https://www.clever-cloud.com/redis-hosting">Redis Hosting</a></li>
+                        <li><a href="https://www.clever-cloud.com/mongodb-hosting">MongoDB Hosting</a></li>
+                        <li><a href="https://www.clever-cloud.com/elasticsearch-hosting">ElasticSearch Hosting</a></li>
+                        <li><a href="https://www.clever-cloud.com/cellar-s3-hosting">Cellar Storage Hosting</a></li>
+                      </ul>
+                    </div>
+  
+                    <div class="col* col-sm-6 col-md-4 col-lg-2 footer__menu">
+                      <h4>Clever Cloud</h4>
+                      <ul>
+                        <li><a href="https://www.clever-cloud.com/about">About</a></li>
+                        <li><a href="https://www.clever-cloud.com/careers">Careers</a></li>
+                        <li><a href="https://www.clever-cloud.com/brand-assets">Media Resources</a></li>
+                        <li><a href="https://www.clever-cloud.com/open-source">Open Source</a></li>
+                        <li><a href="https://www.clever-cloud.com/blog">Blog</a></li>
+                        <li><a href="https://www.clever-cloud.com/doc">Documentation</a></li>
+                        <li><a href="https://www.clever-cloud.com/doc/get-help/faq/">FAQ</a></li>
+                        <li><a href="https://www.clever-cloud.com/doc/clever-cloud-overview/add-application/">Getting Started</a></li>
+                      </ul>
+                    </div>
+  
+                    <div class="col* col-sm-6 col-md-4 col-lg-2 footer__menu">
+                      <h4>Runtimes</h4>
+                      <ul>
+                        <li><a href="https://www.clever-cloud.com/nodejs-hosting">Node.js</a></li>
+                        <li><a href="https://www.clever-cloud.com/java-hosting">Java</a></li>
+                        <li><a href="https://www.clever-cloud.com/php-hosting">PHP</a></li>
+                        <li><a href="https://www.clever-cloud.com/scala-hosting">Scala</a></li>
+                        <li><a href="https://www.clever-cloud.com/python-hosting">Python</a></li>
+                        <li><a href="https://www.clever-cloud.com/docker">Docker</a></li>
+                        <li><a href="https://www.clever-cloud.com/ruby-hosting">Ruby</a></li>
+                        <li><a href="https://www.clever-cloud.com/golang-hosting">Golang</a></li>
+                        <li><a href="https://www.clever-cloud.com/haskell-hosting">Haskell</a></li>
+                        <li><a href="https://www.clever-cloud.com/rust-hosting">Rust</a></li>
+                      </ul>
+                    </div>
+  
+                    <div class="col* col-sm-6 col-md-4 col-lg-2 footer__menu">
+                      <h4>Offers & Pricing</h4>
+                      <ul>
+                        <li><a href="https://www.clevergrid.io/">Machine Learning - Clever Grid</a></li>
+                        <li><a href="https://www.clever-cloud.com/pricing">Pricing</a></li>
+                        <li><a href="https://www.clever-cloud.com/enterprise">Clever Cloud Enterprise</a></li>
+                        <li><a href="https://www.clever-cloud.com/on-premises">Clever Cloud On Premises</a></li>
+                        <li><a href="https://www.clever-cloud.com/early-stage">Early Stage Startups</a></li>
+                      </ul>
+                    </div>
+  
+                    <div class="col* col-sm-6 col-md-4 col-lg-2 footer__menu">
+                      <h4>Legal Info</h4>
+                      <ul>
+                        <li><a href="https://www.clever-cloud.com/legal-terms">Legal Information</a></li>
+                        <li><a href="https://www.clever-cloud.com/terms-of-use">Terms of Use</a></li>
+                        <li><a href="https://www.clever-cloud.com/security">Security</a></li>
+                        <li><a href="https://www.clever-cloud.com/privacy-policy">Privacy Policy</a></li>
+                      </ul>
+                    </div>
+  
+                    <div class="col* col-sm-6 col-md-2 col-lg-2 footer__menu">
+                      <h4>Service</h4>
+                      <ul>
+                        <li><a href="https://status.clever-cloud.com/">System Status</a></li>
+                        <li><a href="https://console.clever-cloud.com/">Log In</a></li>
+                        <li><a href="https://api.clever-cloud.com/v2/sessions/signup">Sign Up</a></li>
+                      </ul>
+                    </div>
+  
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </footer>
+  

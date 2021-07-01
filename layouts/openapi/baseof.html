@@ -2,7 +2,7 @@
 <html>
     {{- partial "openapi/head_openapi.html" . -}}
 
-    <body>
+    <body class="openapi-doc">
         <!-- The header -->
         {{- partial "openapi/header_openapi.html" . -}}
 
@@ -11,11 +11,7 @@
         {{- end }}
 
       <!-- The footer -->
-      <footer>
-        <div class="main__footer" style="margin: 0;">
-          {{- partial "footer-content.html" . -}}
-        </div>
-      </footer>
+      {{- partial "clever-footer.html" . -}}
 
     <!-- Useless, since the partial is empty -->
     {{- partial "footer.html" . -}}
