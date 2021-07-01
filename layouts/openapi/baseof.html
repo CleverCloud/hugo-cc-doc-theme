@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-{{- partial "openapi/head_openapi.html" . -}}
+    {{- partial "openapi/head_openapi.html" . -}}
 
-<body>
-  <!-- The header -->
-  {{- partial "openapi/header_openapi.html" . -}}
+    <body>
+        <!-- The header -->
+        {{- partial "openapi/header_openapi.html" . -}}
 
-  <!-- The main page content (<rapi-doc>) -->
-  {{- block "main" . }}
-  {{- end }}
+        <!-- The main page content (<rapi-doc>) -->
+        {{- block "main" . }}
+        {{- end }}
 
-  <!-- The footer -->
-  <footer>
-    <div class="main__footer" style="margin: 0;">
-      {{- partial "footer-content.html" . -}}
-    </div>
-  </footer>
+      <!-- The footer -->
+      <footer>
+        <div class="main__footer" style="margin: 0;">
+          {{- partial "footer-content.html" . -}}
+        </div>
+      </footer>
 
-  <!-- Useless, since the partial is empty -->
-  {{- partial "footer.html" . -}}
-</body>
+    <!-- Useless, since the partial is empty -->
+    {{- partial "footer.html" . -}}
+    </body>
 </html>

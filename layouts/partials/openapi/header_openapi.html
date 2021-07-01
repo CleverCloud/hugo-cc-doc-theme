@@ -1,44 +1,57 @@
-<header style="padding: 0; margin: 0;">
-    <button type="button" id="sidebarCollapse" class="btn btn-info d-block d-md-none d-lg-none">
-        {{- partial "svg.html" (dict "id" "bars" "class" "icon" "width" 32 "height" 32) -}}
-    </button>
 
-    <div style="background-color: #13172e; width: 330px; float: left; padding: 1rem 4rem;">
+<button type="button" id="sidebarCollapse" class="btn btn-info d-block d-md-none d-lg-none">
+    {{- partial "svg.html"  (dict "id" "bars" "class" "icon" "width" 32 "height" 32) -}}
+
+</button>
+  
+
+<header style="padding: 0; margin: 0;">
+    <div style="background-color: #13172e;width: 330px; float:left; padding: 1rem 4rem;">
         <a href="/">
-            <img src="{{.Site.BaseURL}}{{.Site.Params.menuLogo}}" class="img-fluid logo-sidebar_img" alt="Clever Cloud Logo">
-        </a>
+            <img src="{{ .Site.BaseURL }}{{ .Site.Params.menuLogo }}" class="img-fluid logo-sidebar_img" style="padding: 1rem;" alt="Clever Cloud Logo">
+          </a>
     </div>
 
+
     <nav class="navbar navbar-expand-lg navbar-light" style="padding: 2rem 6rem;">
+
+  
         {{- if .Site.Menus.shortcuts}}
+
         <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarMainCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+          </button>
 
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav ml-auto">
-                {{- with .Site.Menus.shortcuts }}
-                {{- range sort . "Weight" }}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{.URL}}" {{if eq $.Site.Params.menushortcutsnewtab true}}target="_blank"{{end}}>
-                        {{ safeHTML .Name }}
-                    </a>
-                </li>
-                {{- end}}
-                {{- end}}
-                <li class="d-none d-lg-block">
-                    <div class="login__header">
-                        <a href="{{.Site.Params.signUpURL}}" class="btn">Login / Signup</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        {{- end}}
+            <div class="collapse navbar-collapse" id="navbarContent">
+
+                <ul class="navbar-nav ml-auto">
+
+
+
+                    {{- with .Site.Menus.shortcuts}}
+                        {{- range sort . "Weight"}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{.URL}}" {{if eq $.Site.Params.menushortcutsnewtab true}}target="_blank"{{end}}>
+                                    {{safeHTML .Name}}
+                                </a>
+                            </li>
+                        {{- end}}
+                    {{- end}}
+                    <li class="d-none d-lg-block">
+                        <div class="login__header">
+                            <a href="{{ .Site.Params.signUpURL }}" class="btn">Login / Signup</a>
+                        </div>
+                      </li>
+                </ul>
+            </div>
+    {{- end}}
+        
     </nav>
 
     <div class="mob__login d-block d-lg-none">
         <div class="login__header">
-            <a href="{{.Site.Params.signUpURL}}" class="btn">Login / Signup</a>
+            <a href="{{ .Site.Params.signUpURL }}" class="btn">Login / Signup</a>
         </div>
-    </div>
+      </div>
+
 </header>
