@@ -255,7 +255,6 @@ a.anchor {
   color: $lightpurple !important;
   font-size: .8em;
   cursor: pointer; 
-  opacity: 0;
   margin-left: .3em;
   position: absolute;
   margin-top: .2em;
@@ -271,8 +270,4 @@ a.anchor {
     transition: opacity .35s ease;
     opacity: .8;
   }
-}
-h2:hover .anchor {
-  //Showing the anchor when hovering the title
-  opacity: .8;
 }
