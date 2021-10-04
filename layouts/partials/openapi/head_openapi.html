@@ -15,7 +15,7 @@
     {{ $css := slice  $cleverCSS  | resources.Concat "css/openapibundle.css" | minify }}
     {{ $purgedCss := $css | postCSS (dict "config" "./assets/css/postcss.config.js") }}
     {{ $secureCleverCSS := $purgedCss | resources.Fingerprint site.Params.digest }}
-    <link type=text/css rel=stylesheet href="{{ $secureCleverCSS.RelPermalink }}" integrity="{{ $secureCleverCSS.Data.Integrity }}" media="screen, print" />
+    <link type=text/css rel=stylesheet href="{{ $secureCleverCSS.RelPermalink }}" media="screen, print" />
 
 
     <!-- Icons -->
@@ -49,7 +49,7 @@
     {{ $opts := dict "defines" $defines "minify" true}}
     {{ $req := slice $jquery $popperjs $bootstrap $darkModeSwitch | resources.Concat "js/openapibundle.js" | js.Build $opts }}
     {{ $secureCleverJS := $req | resources.Fingerprint site.Params.digest }}
-    <script src="{{ $secureCleverJS.RelPermalink }}" integrity="{{ $secureCleverJS.Data.Integrity }}" defer></script>
+    <script src="{{ $secureCleverJS.RelPermalink }}" defer></script>
 
     <!-- Only include the tracking when using `hugo` or adding `--environment production` -->
     {{ if eq hugo.Environment "production" }}
