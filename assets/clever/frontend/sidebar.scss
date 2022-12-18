@@ -1,5 +1,5 @@
 #sidebar {
-  width: 30rem;
+  width: 21rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   padding: 2rem 4rem 4rem 4rem;
   transition: all 0.3s;
   .sidebar__logo{
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     .logo-sidebar_img{
       height: 35px;
     }
@@ -26,10 +26,9 @@
 
 // navigation //
 .sidebar__menu{
-  font-size: 1.5rem;
   ul{
     li{
-      margin: 1.4rem 1rem 1.4rem 0;
+      margin: 1.1rem 1rem 1.1rem 0;
       position: relative;
       a{
         text-decoration: none;
