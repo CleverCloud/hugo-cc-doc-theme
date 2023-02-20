@@ -1,7 +1,6 @@
 import algoliasearch from "algoliasearch";
 import autocomplete from "autocomplete.js";
 
-
 var client = algoliasearch('{{ .Site.Params.algolia_appId }}', '{{ .Site.Params.algolia_apiKey }}');
 var index = client.initIndex('{{ .Site.Params.algolia_indexName }}');
 var siteBaseURL = '{{ .Site.BaseURL }}'.replace(/\/$/, '');
@@ -28,11 +27,11 @@ var siteBaseURL = '{{ .Site.BaseURL }}'.replace(/\/$/, '');
         suggestion: function(suggestion) {
           var val = suggestion._highlightResult.title.value;
           var output = '<div>' + autocomplete.escapeHighlightedString(val);
-          if (suggestion._highlightResult.desc) output = output + '<div class="search-description">' + suggestion._highlightResult.desc.value + '</div>';
+          if (suggestion._highlightResult.desc) output = output + '<div class="search-description">' + autocomplete.escapeHighlightedString(suggestion._highlightResult.desc.value) + '</div>';
           return output;
         },
         empty : function(ctx) {
-          return '<p>No Results for ' + ctx.query + '</div>';
+          return '<p>No Results for ' + autocomplete.escapeHighlightedString(ctx.query) + '</div>';
         }
       }
     }
